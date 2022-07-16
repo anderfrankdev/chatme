@@ -1,0 +1,29 @@
+{
+  "name": "chatme",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/anderfrankdev/chatme.git"
+  },
+  "keywords": [
+    "chatme",
+    "chatapp"
+  ],
+  "author": "Ander Carrasco",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/anderfrankdev/chatme/issues"
+  },
+  "homepage": "https://github.com/anderfrankdev/chatme#readme",
+  "dependencies": {
+    "cors": "^2.8.5",
+    "dotenv": "^16.0.1",
+    "eta": "^1.12.3",
+    "express": "^4.18.1"
+  }
+}
