@@ -3,9 +3,33 @@
 <head>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<title>Document</title>
+	<title>Chatme - Log in or sign up</title>
+	<link rel="stylesheet" href="/login/styles/styles.css">
 </head>
 <body>
-	
+	<main class="main-container">
+
+		<aside class="welcome-container">
+			
+			<div class="wellcome-image"><img src="login/assets/welcome.svg" alt=""></div>
+			<h1 class="title">Welcome to chatme!</h1>
+		</aside>
+		<div class="round-top"></div>
+		<div class="round-bottom"></div>
+		<section class="method-container">
+			<div class="sign-btn">
+				<button >Log in</button>
+			</div>
+			<div class="or-msg"><hr><span>or</span><hr></div>
+			<div class="sign-btn">
+				<button >Sign up</button>
+				<p><small>It's easy and fast</small></p>
+			</div>	
+			
+		</section>
+
+		<form action="" class="sign-form animation-form"></form>
+		<form action="" class="sign-form animation-form"></form>
+	</main>
 </body>
 </html>
