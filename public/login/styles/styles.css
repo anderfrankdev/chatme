@@ -76,7 +76,7 @@ body{
 	padding: 0;
 }
 
-.wellcome-image > img{
+img{
 	max-width: 100%;
 	max-height: 100%;
 	margin: 0;
@@ -152,16 +152,32 @@ body{
 }
 
 .sign-form{
-    height: 50vh;
-    width: 80%;
-    background: green;
-    position: absolute;
-    top: 25vh;
-    left: 10%;
-    z-index: 2;
-    transform:translate(120%,0);
+  backdrop-filter: blur(5px);
+  background: #11111188;
+  position: absolute;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  z-index: 2;
+  transform:translate(120%,0);
+}
 
+.signin-form{
+	width: 100%;
+	height: 100vh;
+  top: 0;
+  left: 0;
+}
 
+.signup-form{
+	height: 100vh;
+	top: 0;
+	overflow-x: hidden;
+	width: 100%;
+	left: 0;
+	overflow-y: hidden;
+	overflow-y: auto;
 }
 
 @keyframes slidein {
@@ -176,25 +192,114 @@ body{
 
 .animation-form-in{
 	animation-name: slidein;
-    animation-duration: 1s;
-    animation-iteration-count: 1;
-    animation-fill-mode: forwards;
+  animation-duration: 1s;
+  animation-iteration-count: 1;
+  animation-fill-mode: forwards;
 }
 
 @keyframes slideout {
   from {
-    right: -100%;
+    transform:translate(0,0);
   }
 
-  to {
-    
-    right: 10%;
+  to { 
+    transform:translate(120%,0);
   }
 }
 
 .animation-form-out{
-	animation-name: slideout;
+		animation-name: slideout;
     animation-duration: 1s;
     animation-iteration-count: 1;
+    animation-fill-mode: forwards;
+}
+.signup-form>.input-container{
+	display: flex;
+	width: 100%;
+	position: absolute;
+	top: 3.2rem;
+	justify-content: center;
+	align-items: center;
+	flex-direction: column;
+	padding-bottom: 2rem;
+}
+.arrow-icon{
+	position: absolute;
+	transform: rotate(90deg);
+	top: 0.8rem;
+	right: 1.1rem;
+	width: 2.8rem;
+	height: 2.8rem;
+}
+
+.input-text{
+	margin: 2.5rem;
+	margin-top: 1.8rem;
+	width: 80%;
+	height: 2rem;
+}
+
+.input-text > input{
+	border: none;
+	border-radius: 8px ;
+	width: 100%;
+	height: 100%;
+	outline: 2px solid #9dd2d8;
+	font-size: 1rem;
+}
+
+.input-text>label{
+	position: relative;
+	bottom: 1rem;
+	color: #fff;
+	font-weight: bolder;
+	font-size: 1.2rem;
+}
+
+.form-submit{
+	width: 38%;
+	height: 2rem;
+}
+
+.form-submit > input{
+	width: 100%;
+	height: 100%;
+	outline: 3px solid #9dd2d8;
+	border: none;
+	background: none;
+	font-size: 1rem;
+	margin-top: 2.6rem;
+	margin-bottom: 2.6rem;
+	color: #fff;
+	font-weight: bolder;
+	border-radius: 8px;
+}
+
+.input-text>p{
+	margin-top: 0.3rem;
+	text-align:right ;
+	color: white;
+	font-size: 1.1rem;
+}
+.form-terms{
+	margin-top: 1rem;
+}
+.form-terms>label{
+	color: #fff;
+	font-size: 0.8rem;
+}
+
+#terms-check{
+	border: none;
+	position: relative;
+	top: 5px;
+	border-radius: 8px;
+	right: 4px;
+	height: 1.2rem;
+	width: 1.2rem;
+}
+
+a{
+	color: inherit;
 }
 
