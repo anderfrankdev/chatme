@@ -10,8 +10,10 @@ function toggleForm() {
 			loginForm.classList.replace("animation-form-out","animation-form-in")
 
 		}
+		if (!loginForm.classList.contains("animation-form-in")) {
 
-		loginForm.classList.add("animation-form-in")
+			loginForm.classList.add("animation-form-in")
+		}
 	})
 	loginArrow.addEventListener("click",e=>{
 		loginForm.classList.replace("animation-form-in","animation-form-out")
@@ -28,8 +30,8 @@ function toggleForm() {
 			signForm.classList.replace("animation-form-out","animation-form-in")
 
 		}
-
-		signForm.classList.add("animation-form-in")
+		if (!signForm.classList.contains("animation-form-in"))
+			signForm.classList.add("animation-form-in")
 	})
 	signArrow.addEventListener("click",e=>{
 		signForm.classList.replace("animation-form-in","animation-form-out")
