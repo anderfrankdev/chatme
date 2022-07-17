@@ -8,8 +8,6 @@
 	<script type="module" src="/login/js/index.js"></script>
 </head>
 <body>
-	<div class="round-draw draw-0"></div>
-	<div class="round-draw draw-1"></div>
 	<main class="main-container">
 
 		<aside class="welcome-container">

@@ -416,17 +416,13 @@ a{
 	color: inherit;
 }
 
-.round-draw{
-	display: none;
-}
-
 @media screen and (min-width:48em) and (orientation:landscape) {
 	body{
 		display: flex;
 		justify-content: center;
 		align-items: center;
 		min-height: 100vh;
-		background:#9dd2d8;
+		background: linear-gradient(135deg, #8363a1 0%, #5286b2 100%);
 		position: relative;
 	}
 	.main-container{
@@ -511,25 +507,6 @@ a{
 	.round-bottom{
 		display: none;
 	}
-
-	.round-draw{
-		display: block;
-		background: #6aa0a6;
-		position: absolute;
-		width: 400px;
-		height: 400px;
-		border-radius: 50%;
-	}
-
-	.draw-0{
-		top: -15%;
-		left: -15%;
-	}
-	.draw-1{
-		bottom: 10%;
-		right: -15%;
-	}
-
 }
 
 @media screen and (max-height:380px) and (orientation:landscape) {
