@@ -28,11 +28,12 @@ function toggleForm() {
 		if (signForm.classList.contains("animation-form-out")) {
 			
 			signForm.classList.replace("animation-form-out","animation-form-in")
-
 		}
+		
 		if (!signForm.classList.contains("animation-form-in"))
 			signForm.classList.add("animation-form-in")
 	})
+
 	signArrow.addEventListener("click",e=>{
 		signForm.classList.replace("animation-form-in","animation-form-out")
 	})

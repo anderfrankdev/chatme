@@ -8,12 +8,14 @@
 	<script type="module" src="/login/js/index.js"></script>
 </head>
 <body>
+	<div class="round-draw draw-0"></div>
+	<div class="round-draw draw-1"></div>
 	<main class="main-container">
 
 		<aside class="welcome-container">
 			
 			<div class="wellcome-image"><img src="login/assets/welcome.svg" alt=""></div>
-			<h1 class="title">Welcome to chatme!</h1>
+			<h1 class="title">Welcome to Chatme!</h1>
 		</aside>
 		<div class="round-top"></div>
 		<div class="round-bottom"></div>
