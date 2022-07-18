@@ -339,6 +339,7 @@ input[type=checkbox]{
 	.round-bottom{
 		display: none;
 	}
+	
 	.sign-form{
 		transition: unset;
 		width: 90%;
