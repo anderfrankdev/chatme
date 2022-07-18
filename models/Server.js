@@ -3,6 +3,7 @@ const {createServer} = require("http")
 const eta = require("eta")
 const express = require('express')
 const cors = require('cors')
+var useragent = require('express-useragent');
 
 let instance;
 
@@ -14,7 +15,7 @@ class Server{
 			this.app = express()
 			this.server= createServer(this.app)
 			this.path = {
-				app:"/",
+				app:"/app",
 				api:{
 
 				}
@@ -37,6 +38,7 @@ class Server{
 	routes(){
 
 		this.app.use( this.path.app, require('../routes/app/login') )
+		this.app.use( this.path.app, require('../routes/app/chat') )
 		
 	}
 	renderEngine(){
@@ -50,13 +52,16 @@ class Server{
 	middlewares(){
 
 		//Public directory
-		this.app.use( express.static(__dirname.replace("models","public")) )
+		this.app.use( express.static(__dirname.replace("models","public"),{redirect: false}) )
 
 		//CORS
 		this.app.use( cors() )
 
 		//Read the json
 		this.app.use( express.json() )
+
+		//Parse user agent
+		this.app.use(useragent.express());
 	}
 
 	listen(){

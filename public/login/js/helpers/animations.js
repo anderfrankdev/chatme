@@ -4,12 +4,26 @@ function toggleForm() {
 	const loginArrow = document.getElementById('login-arrow')
 
 	loginBtn.addEventListener("click",e=>{
-			
+		
+		if (window.matchMedia("(min-width: 48em)").matches) {
+			loginForm.style.right="unset"
+			loginForm.style.top="unset"
+
+			return
+		}
+
 		loginForm.style.right="0"
 
 	})
+
 	loginArrow.addEventListener("click",e=>{
 		
+		if (window.matchMedia("(min-width: 48em)").matches) {
+			
+			loginForm.style.right="100%"
+			
+			
+		}
 		
 		if (loginForm.dataset.animation.includes("right")) {
 			loginForm.style.right="100%"
@@ -44,11 +58,27 @@ function toggleForm() {
 	
 	signBtn.addEventListener("click",e=>{
 
+		if (window.matchMedia("(min-width: 48em)").matches) {
+			signForm.style.right="unset"
+			signForm.style.top="unset"
+
+			return
+		}
+
 		signForm.style.right="0"
 
 	})
 
 	signArrow.addEventListener("click",e=>{
+
+
+		if (window.matchMedia("(min-width: 48em)").matches) {
+			
+			signForm.style.right="100%"
+			
+			
+		}
+		
 		if (signForm.dataset.animation.includes("right")) {
 			signForm.style.right="100%"
 			signForm.dataset.animation="left"
