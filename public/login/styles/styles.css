@@ -332,4 +332,7 @@ a{
 	.round-bottom{
 		display: none;
 	}
+	.sign-form{
+		transition: unset;
+	}
 }
