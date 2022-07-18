@@ -4,38 +4,74 @@ function toggleForm() {
 	const loginArrow = document.getElementById('login-arrow')
 
 	loginBtn.addEventListener("click",e=>{
-
-		if (loginForm.classList.contains("animation-form-out")) {
 			
-			loginForm.classList.replace("animation-form-out","animation-form-in")
+		loginForm.style.right="0"
 
-		}
-		if (!loginForm.classList.contains("animation-form-in")) {
-
-			loginForm.classList.add("animation-form-in")
-		}
 	})
 	loginArrow.addEventListener("click",e=>{
-		loginForm.classList.replace("animation-form-in","animation-form-out")
-	})
+		
+		
+		if (loginForm.dataset.animation.includes("right")) {
+			loginForm.style.right="100%"
+			loginForm.dataset.animation="left"
+			loginArrow.style.transform="rotate(0)"
 
-	const signBtn = document.getElementById('sign-btn')
-	const signForm = document.getElementById('sign-form')
-	const signArrow = document.getElementById('sign-arrow')
-
-	signBtn.addEventListener("click",e=>{
-
-		if (signForm.classList.contains("animation-form-out")) {
+			return
+		}
+		if (loginForm.dataset.animation.includes("left")) {
 			
-			signForm.classList.replace("animation-form-out","animation-form-in")
+			loginForm.style.right="-100%"
+			loginArrow.style.transform="rotate(180deg)"
+			loginForm.dataset.animation="right"
+			return
+		}
+		if (!loginForm.dataset.animation) {
+
+			loginForm.style.right="100%"
+			loginForm.dataset.animation="left"
+			loginArrow.style.transform="rotate(0)"
+
+			return
+
 		}
 		
-		if (!signForm.classList.contains("animation-form-in"))
-			signForm.classList.add("animation-form-in")
+		
+	})
+
+	const signBtn = document.getElementById('signup-btn')
+	const signForm = document.getElementById('signup-form')
+	const signArrow = document.getElementById('signup-arrow')
+	
+	signBtn.addEventListener("click",e=>{
+
+		signForm.style.right="0"
+
 	})
 
 	signArrow.addEventListener("click",e=>{
-		signForm.classList.replace("animation-form-in","animation-form-out")
+		if (signForm.dataset.animation.includes("right")) {
+			signForm.style.right="100%"
+			signForm.dataset.animation="left"
+			signArrow.style.transform="rotate(0)"
+
+			return
+		}
+		if (signForm.dataset.animation.includes("left")) {
+			
+			signForm.style.right="-100%"
+			signArrow.style.transform="rotate(180deg)"
+			signForm.dataset.animation="right"
+			return
+		}
+		if (!signForm.dataset.animation) {
+
+			signForm.style.right="100%"
+			signForm.dataset.animation="left"
+			signArrow.style.transform="rotate(0)"
+
+			return
+
+		}
 	})
 }
 

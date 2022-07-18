@@ -3,86 +3,60 @@
 <head>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<title>Chatme - Log in or sign up</title>
+	<title>Chatme - Log in  or sign up</title>
 	<link rel="stylesheet" href="/login/styles/styles.css">
 	<script type="module" src="/login/js/index.js"></script>
 </head>
 <body>
 	<main class="main-container">
-
-		<aside class="welcome-container">
-			
-			<div class="wellcome-image"><img src="login/assets/welcome.svg" alt=""></div>
-			<h1 class="title">Welcome to Chatme!</h1>
-		</aside>
-		<div class="round-top"></div>
-		<div class="round-bottom"></div>
-		<section class="method-container">
-			<div class="sign-btn" >
-				<button id="login-btn">Log in</button>
+		<div class="welcome-container">
+			<div class="round-top"><div></div></div>
+			<div class="welcome-msg-container">
+				<div class="wellcome-image">
+					<img src="login/assets/welcome.svg" alt="">
+				</div>
+				<h1 class="title">Welcome to Chatme!</h1>
 			</div>
-			<div class="or-msg"><hr><span>or</span><hr></div>
-			<div class="sign-btn" >
-				<button id="sign-btn">Sign up</button>
-				
+			<div class="round-bottom">
 			</div>
-			<p class="signup-msg"><small>It's easy and fast</small></p>
-			
-		</section>
-
-		<form action="" class="sign-form signin-form" id="login-form">
-			<div class="arrow-icon" id="login-arrow"><img src="login/assets/arrow.svg" alt=""></div>
-			<div class="input-container">
-				
-				<div class="input-text">
+			<div class="sign-buttons-container">
+				<button id="login-btn" class="sign-btn">Log in</button>
+				<div class="or-msg"><hr><span>or</span><hr></div>
+				<button id="signup-btn" class="sign-btn">Sign up</button>
+				<p class="signup-msg"><small>It's easy and fast</small></p>
+			</div>
+		</div>
+		<form action="" class="sign-form" id="login-form" data-animation="">
+			<div class="arrow-icon" id="login-arrow"></div>
+			<div class="input-text">
 					<label for="signin-email">Email</label>
 					<input type="text" id="signin-email" placeholder="What's your email?">
-				</div>
-				<div class="input-text">
-					<label for="signin-password">Password</label>
-					<input type="password" id="signin-password" placeholder="Type your password" >
-					<p><small><a href="#">Forgot password?</a></small></p>
-				</div>
-				<div class="form-submit"><input type="submit" value="Log in"></div>
 			</div>
+			<div class="input-text">
+				<label for="signin-password">Password</label>
+				<input type="password" id="signin-password" placeholder="Type your password">
+				<p><small><a href="#">Forgot password?</a></small></p>
+			</div>
+			<div class="form-submit"><input type="submit" value="Log in"></div>
 		</form>
-		<form action="" class="sign-form signup-form" id="sign-form">
-			<div class="arrow-icon" id="sign-arrow"><img src="login/assets/arrow.svg" alt=""></div>
-			<div class="input-container">
-				<div class="input-text">
-					<label for="signup-firstname">First name</label>
-					<input type="text" id="signup-firstname" placeholder="What's your first name?">
-				</div>
-				<div class="input-text">
-					<label for="signup-lastname">Last name</label>
-					<input type="text" id="signup-lastname" placeholder="Tell me your last name?">
-				</div>
-				<div class="input-text">
-					<label for="signup-birth">Birth date</label>
-					<input type="date" id="signup-birth" placeholder="What's your birthdate">
-				</div>
-				<div class="input-text">
-					<label for="signup-username">Username</label>
-					<input type="text" id="signup-username" placeholder="What will be your username?">
-				</div>
-				<div class="input-text">
+		<form action="" class="sign-form" id="signup-form" data-animation="">
+			<div class="arrow-icon" id="signup-arrow"></div>
+			<div class="input-text">
 					<label for="signup-email">Email</label>
 					<input type="text" id="signup-email" placeholder="What's your email?">
-				</div>
-				<div class="input-text">
-					<label for="signup-password">Password</label>
-					<input type="text" id="signup-password" placeholder="Type a secure password?">
-				</div>
-				<div class="input-text">
-					<label for="signup-password-2">Repeat password</label>
-					<input type="text" id="signup-password-2" placeholder="Repeat your password">
-				</div>
-				<div class="form-terms">
-					
-					<label><input type="checkbox" id="terms-check" value="term" required>I accept the <a href="#">Privacy Policy and terms</a></label>
-				</div>
-				<div class="form-submit"><input type="submit" value="Sign up"></div>
 			</div>
+			<div class="input-text">
+				<label for="signup-password">Password</label>
+				<input type="password" id="signup-password" placeholder="Type your password">
+			</div>
+			<div class="input-text">
+				<label for="signup-password-2">Repeat password</label>
+				<input type="password" id="signup-password-2" placeholder="Type your password">
+			</div>
+			<div class="form-terms">
+				<label><input type="checkbox" id="terms-check" value="term" required="">I accept the <a href="#">Privacy Policy and terms</a></label>
+			</div>
+			<div class="form-submit"><input type="submit" value="Sign up"></div>
 		</form>
 	</main>
 </body>
