@@ -37,8 +37,8 @@ class Server{
 
 	routes(){
 
-		this.app.use( this.path.app, require('../routes/app/login') )
-		this.app.use( this.path.app, require('../routes/app/chat') )
+		this.app.use( this.path.app, require('../routes/app') )
+		//this.app.use( this.path.app, require('../routes/app/chat') )
 		
 	}
 	renderEngine(){
