@@ -4,14 +4,27 @@
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<title>Chatme</title>
-	<script type="module" defer>
-		
-	</script>
+	<link rel="stylesheet" href="/chat/styles/styles.css">
+	<!--<script type="module" src="/login/js/index.js"></script>-->
 </head>
 <body>
 	<div id="root" class="main-container">
-		<aside class=""></aside>
-		<main ></main>
+		<aside class="aside-container">
+			<div class="header">
+				<div class="user-image"></div>
+				<div class="user-actions">
+					<div class="new-message"></div>
+				</div>
+			</div>
+		</aside>
+		<main class="chat-container">
+			<section class="chat">
+				
+			</section>
+			<section class="contact-info">
+				
+			</section>
+		</main>
 	</div>
 </body>
 </html>

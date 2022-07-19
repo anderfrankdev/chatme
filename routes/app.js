@@ -8,6 +8,10 @@ const {chat} = require("../controllers/app/chat.js")
 
 //Middlewares
 
+
+
+// Routes
+
 router.get("/", login)
 router.get("/chat", chat)
 

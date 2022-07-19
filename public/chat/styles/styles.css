@@ -1,0 +1,57 @@
+html{
+	box-sizing: border-box;
+
+}
+
+:root{
+	font-size: 16px;
+}
+
+*,
+*:after,
+*:before{
+	box-sizing: inherit;
+}
+
+body{
+	margin: 0;
+	font-family: sans-serif;
+}
+
+img{
+	width: 100%;
+	height: 100%;
+}
+
+.main-container{
+	width: 100%;
+	height: 100vh;
+	display: grid;
+	grid-template-columns: 2fr 1fr;
+	grid-template-rows: 1fr;
+	grid-template-areas: "chat aside";
+}
+
+.aside-container{
+	grid-area: aside;
+}
+
+.chat-container{
+	grid-area: chat;
+}
+
+.header{
+	width: 100%;
+	height: fit-content;
+	padding: 0.65rem 1rem;
+	display: flex;
+}
+
+.user-image{
+	width: 45px;
+	height: 45px;
+}
+
+.user-actions{
+	
+}
