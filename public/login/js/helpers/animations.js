@@ -5,7 +5,7 @@ function toggleForm() {
 
 	loginBtn.addEventListener("click",e=>{
 		
-		if (window.matchMedia("(min-width: 48em)").matches) {
+		if (window.matchMedia("(min-width: 53.125em)").matches) {
 			loginForm.style.right="unset"
 			loginForm.style.top="unset"
 
@@ -18,7 +18,7 @@ function toggleForm() {
 
 	loginArrow.addEventListener("click",e=>{
 		
-		if (window.matchMedia("(min-width: 48em)").matches) {
+		if (window.matchMedia("(min-width: 53.125em)").matches) {
 			
 			loginForm.style.right="100%"
 			
@@ -58,7 +58,7 @@ function toggleForm() {
 	
 	signBtn.addEventListener("click",e=>{
 
-		if (window.matchMedia("(min-width: 48em)").matches) {
+		if (window.matchMedia("(min-width: 53.125em)").matches) {
 			signForm.style.right="unset"
 			signForm.style.top="unset"
 
@@ -72,7 +72,7 @@ function toggleForm() {
 	signArrow.addEventListener("click",e=>{
 
 
-		if (window.matchMedia("(min-width: 48em)").matches) {
+		if (window.matchMedia("(min-width: 53.125em)").matches) {
 			
 			signForm.style.right="100%"
 			
