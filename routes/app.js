@@ -13,6 +13,7 @@ const {chat} = require("../controllers/app/chat.js")
 // Routes
 
 router.get("/", login)
+
 router.get("/chat", chat)
 
 module.exports = router

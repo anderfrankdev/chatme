@@ -59,6 +59,9 @@ img{
 	align-items: flex-start;
 	justify-content: center;
 	overflow-y: auto;
+	border: 1px solid #ddd;
+	border-top: none;
+	border-bottom: none;
 }
 
 .chat-container{
@@ -66,28 +69,23 @@ img{
 }
 
 .header{
-	border-left: 1px solid #d1d7db;
 	width: 100%;
 	height: fit-content;
-	padding: 1rem 1rem 1rem 0.65rem;
+	padding: 0.7rem 1rem 0.7rem 0.65rem;
 	display: flex;
 	justify-content: space-between;
 	align-items: center;
 	background: #eee;
+	border-bottom: 1px solid #ddd;
 }
 
-#user-image{
-	width: 45px;
-	height: 45px;
-	cursor: pointer;
-	border-radius: 50%;
-	overflow: hidden;
+.chatting-contact{
+	flex: auto;
+	padding-left: 1.2rem;
+	display: flex;
+	flex-direction: column;
 }
 
-#user-image>img{
-	height: 120%;
-	width: 120%;
-}
 
 #options{
 	margin-left: 1rem;
@@ -99,8 +97,8 @@ img{
 }
 
 .action-icon{
-	width: 43px;
-	height: 43px;
+	width: 50px;
+	height: 50px;
 	border-radius: 50%;
 	transition: 0.5s all ease;
 	display: flex;
@@ -119,6 +117,19 @@ img{
 	height: 30px;
 }
 
+.action-icon>div{
+	width: 50px;
+	height: 50px;
+	overflow: hidden;
+	border-radius: 50%;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+.action-icon > div > img{
+	width: 120%;
+	height: 120%;
+}
 .action-icon:hover {
 	background: #bbb;
 }
@@ -200,24 +211,33 @@ img{
 	display: flex;
 	flex-direction: row;
 	width: 100%;
-	height: 4.5rem;
+	height: 5rem;
 	cursor: pointer;
 	border-top: 1px solid #d1d7db;
+	padding-top: 0.5rem;
+	padding-bottom: 0.5rem;
 }
 
 .chat-photo{
 	display: flex;
 	justify-content: center;
 	align-items: center;
-	padding: 0.3rem;
-	height: 4.5rem;
-	width: 4.5rem;
 }
 
-.chat-photo>img{
-	height: 4.2rem;
-	width: 4.2rem;
+.chat-photo>div{
+	height: 3.5rem;
+	width: 3.5rem;
+	overflow: hidden;
 	border-radius: 50%;
+	margin-left: 0.3rem;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.chat-photo > div > img{
+	width: 120%;
+	height: 120%;
 }
 
 .chat-info{
@@ -245,7 +265,7 @@ img{
 
 .last-msg-chat{
 	margin: 0;
-	height: 1rem;
+	height: 1.2rem;
 	overflow: hidden;
 	flex: auto;
 	position: relative;
@@ -253,22 +273,34 @@ img{
 	justify-content: flex-start;
 	justify-self: flex-start;
 	margin-top: 2px;
+	font-size: 0.9rem;
+	color: #666;
+	line-height: 1.5rem;
+}
+
+.chat-name{
+	display: flex;
+	align-items: center;
+	justify-content: center;
 }
 
 .last-msg-time,
 .contact-name{
 	margin-bottom: 0;
+	margin-top: 0;
 }
 
 
 .chat-last-message{
 	flex: auto;
+
 }
 
 .contact-name{
 	width: 100%;
 	overflow: hidden;
-	height: 1rem;
+	height: 1.1rem;
+	font-size: 1.1rem;
 }
 
 
@@ -321,3 +353,199 @@ img{
 .chat-card:hover  .unread-amount{
 	background: #9dd2d8;
 }
+
+.chat-container{
+	display: flex;
+	flex-direction: row;
+	overflow: hidden;
+}
+
+.chat{
+	height: 100%;
+	flex: auto;
+	display: flex;
+	flex-direction: column;
+	width: 100%;
+	overflow: hidden;
+}
+
+.contact-info{
+	height: 100%;
+	width: 0;
+}
+
+.messages{
+	flex: auto;
+	overflow-x: hidden;
+	overflow-y: auto;
+}
+
+.chat-actions-container{
+	min-height: 3.875rem;
+	padding-left: 17px;
+	padding-right: 10px;
+	padding-top: 5px;
+	padding-bottom: 5px;
+	display: flex;
+	background: #eee;
+	max-width: 100%;
+	overflow: hidden;
+	border-top: 1px solid #ddd;
+}
+
+.chat-actions{
+	flex: auto;
+	display: flex;
+	flex-direction: row;
+	max-width: 100%;
+	overflow: hidden;
+}
+
+.send-other,
+.chat-input{
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.chat-input{
+
+	padding: 6px 12px ;
+	flex: auto;
+	overflow: hidden;
+	flex-direction: row;
+	justify-content: center;
+	align-items: center;
+	width: 80%;
+}
+
+.msg-text-input{
+	
+	display: block;
+	min-height: 100%;
+	max-height: 7rem;
+	overflow-y: auto;
+	flex: auto;
+	width: 90%;
+	background: #fff;
+	border-radius: 0.5rem;
+	margin-right: 1rem;
+	padding-top: 0.5rem;
+	padding-left: 0.5rem;
+	padding-right: 0.5rem;
+	padding-bottom: 0.5rem;
+	border: 1px solid #ddd;
+
+}
+
+.messages{
+	background: #fff;
+	padding-bottom: 1.3rem;
+	display: flex;
+	flex-direction: column-reverse;
+}
+
+.chatting-contact-lasttime{
+	color: #888;
+}
+
+.send-other>*,
+.send-icon{
+	cursor: pointer;
+}
+
+.message{
+	display: flex;
+	flex-direction: row;
+	padding-left: 4rem;
+	padding-right: 4rem;
+	justify-content: flex-start;
+	align-items: flex-start;
+	margin-top: 1.4rem;
+}
+
+.msg-container{
+	width: 70%;
+	background: #eee;
+	box-shadow: 0px 1px 0px 0px #ddd;
+	border-top-right-radius: 10px;
+	border-bottom-right-radius: 10px;
+	border-bottom-left-radius: 10px;
+	padding-bottom: 0.3rem;
+	padding-top: 0.5rem;
+}
+
+.tail{
+	clip-path: polygon(100% 0, 0 0, 100% 100%);
+
+	height: 1rem;
+	width: 1rem;
+	background: #eee;
+
+}
+
+.msg{
+	padding: 1.2rem;
+	padding-bottom: 0.4rem;
+	padding-top: 0.4rem;
+}
+
+.sent-time{
+	text-align: right;
+	padding-right: 0.8rem;
+}
+
+.received{
+	justify-content: flex-end;
+}
+
+.tail.in{
+	clip-path: polygon(100% 0, 0 0, 0 100%);
+	background:#bff4fb;
+	border: none;
+	position: relative;
+	right: 1px;
+	z-index: 1;
+}
+
+.message.received > .msg-container{
+	border-top-right-radius: 0;
+	border-top-left-radius: 10px;
+	border: none;
+	position: relative;
+	z-index: 0;
+	overflow: hidden;
+}
+
+.message.received > .msg-container{
+	background:  #bff4fb;
+}
+
+.forwarded{
+	padding-left: 1.2rem;
+	padding-right: 1.2rem;
+	font-size: 0.9rem;
+	height: 1rem;
+	color: #666;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	width: 100%;
+}
+
+.forwarded>span>svg{
+	position: relative;
+	top: 3px;
+}
+
+.msg-container:hover  .options-icon{
+	clip-path: polygon(50% 0, 100% 50%, 50% 100%, 45% 90%, 85% 50%, 45% 10%);
+	width: 1.2em;
+	height: 1.2rem;
+	background: #aaa;
+	transform: rotate(90deg) translate(0,0);
+}
+
+ .options-msg{
+ 	cursor: pointer;
+ }
