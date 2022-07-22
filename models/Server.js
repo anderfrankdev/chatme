@@ -3,7 +3,7 @@ const {createServer} = require("http")
 const eta = require("eta")
 const express = require('express')
 const cors = require('cors')
-var useragent = require('express-useragent');
+const useragent = require('express-useragent');
 
 let instance;
 

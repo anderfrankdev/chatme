@@ -365,13 +365,8 @@ img{
 	flex: auto;
 	display: flex;
 	flex-direction: column;
-	width: 100%;
+	width: 50%;
 	overflow: hidden;
-}
-
-.contact-info{
-	height: 100%;
-	width: 0;
 }
 
 .messages{
@@ -442,7 +437,7 @@ img{
 	background: #fff;
 	padding-bottom: 1.3rem;
 	display: flex;
-	flex-direction: column-reverse;
+	flex-direction: column;
 }
 
 .chatting-contact-lasttime{
@@ -466,7 +461,7 @@ img{
 
 .msg-container{
 	width: 70%;
-	background: #eee;
+	background:#bff4fb;
 	box-shadow: 0px 1px 0px 0px #ddd;
 	border-top-right-radius: 10px;
 	border-bottom-right-radius: 10px;
@@ -480,7 +475,8 @@ img{
 
 	height: 1rem;
 	width: 1rem;
-	background: #eee;
+	background:#bff4fb;
+	
 
 }
 
@@ -501,7 +497,7 @@ img{
 
 .tail.in{
 	clip-path: polygon(100% 0, 0 0, 0 100%);
-	background:#bff4fb;
+	background: #eee;
 	border: none;
 	position: relative;
 	right: 1px;
@@ -518,7 +514,7 @@ img{
 }
 
 .message.received > .msg-container{
-	background:  #bff4fb;
+	background: #eee;
 }
 
 .forwarded{
@@ -549,3 +545,122 @@ img{
  .options-msg{
  	cursor: pointer;
  }
+
+
+.contact-info{
+	height: 100%;
+	width: 50%;
+	overflow: hidden;
+	background: #eee;
+	display: flex;
+	flex-direction: column;
+}
+
+.contact-info > .info-container {
+	width: 100%;
+	overflow-x: hidden;
+    overflow-y: auto;
+    flex: auto;
+    background: #eee;
+}
+
+.info-container>*:not(.header){
+	background: #fff;
+}
+
+.contact-info>.header{
+	justify-content: flex-start;
+	border-left: 1px solid #ddd;
+}
+.contact-about,
+.contact-about-title,
+.contact-profile-name,
+.contact-profile-username{
+	margin: 0;
+	padding: 0;
+}
+
+.contact-profile-photo{
+	padding: 1.5rem;
+	display: flex;
+	align-items: center;
+	width: 100%;
+	justify-content: center;
+	flex-direction: column;
+	margin-bottom: 1rem;
+}
+
+.contact-profile-name{
+	margin-top: 0.5rem;
+	font-size: 1.6rem;
+}
+
+
+.contact-info-about{
+	width: 100%;
+	padding-left: 2rem;
+	padding-right: 2rem;
+	padding-top: 1rem;
+	padding-bottom: 1rem;
+	margin-bottom: 1.1rem;
+}
+
+.contact-about{
+	margin-top: 1rem;
+}
+.contact-about-title{
+	color: #777;
+	
+}
+.contact-profile-username{
+
+	margin-top: 0.5rem;
+	color: #777;
+
+}
+
+.contact-info-photos>
+.photos-container>
+.photo-container{
+	width: 20%;
+	height: auto;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	cursor: pointer;
+}
+
+.photos-container{
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	flex-direction: row;
+}
+
+.contact-photos-title{
+	width: 100%;
+	color: #777;
+	display: flex;
+	justify-content: space-between;
+	cursor: pointer;
+}
+
+.contact-info-photos{
+	display: flex;
+	justify-content: flex-start;
+	align-items: center;
+	padding-top: 1rem;
+	padding-bottom: 1rem;
+	flex-direction: column;
+	padding-left: 2rem;
+	padding-right: 2rem;
+	padding-top: 1rem;
+	padding-bottom: 1rem;
+	margin-bottom: 1.1rem;
+}
+
+.contact-info-actions{
+	width: 100%;
+}
+
+
