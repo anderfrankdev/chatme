@@ -58,10 +58,11 @@ img{
 	flex-direction: column;
 	align-items: flex-start;
 	justify-content: center;
-	overflow-y: auto;
+	overflow: hidden;
 	border: 1px solid #ddd;
 	border-top: none;
 	border-bottom: none;
+	position: relative;
 }
 
 .chat-container{
@@ -354,6 +355,95 @@ img{
 	background: #9dd2d8;
 }
 
+.user-profile{
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	top: 100%;
+	background: #eee;
+	transition: 0.5s ease all;
+}
+.user-image{
+	width: 100%;
+	height: auto;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	margin-top: 1.5rem;
+	margin-bottom: 1.5rem;
+
+}
+
+.user-image-container{
+	width: 212px;
+	border-radius: 50%;
+	height: 212px;
+	overflow: hidden;
+}
+
+.blue-header{
+    background: #bff4fb;
+	width: 100%;
+	height: 6.75rem;
+	display: flex;
+	flex-direction: column;
+	justify-content: flex-end;
+}
+
+.blue-header>p{
+	display: flex;
+	justify-content: flex-start;
+	align-items: center;
+	padding-left: 1.2rem;
+	padding-bottom: 0;
+	width: 100%;
+	font-size: 1.2rem;
+	flex-direction: row;
+}
+
+.blue-header .return-icon{
+	display:inline-block; 
+	width: fit-content; 
+	cursor: pointer; 
+	display:flex;
+	align-items: center;
+	justify-content: center;
+	transform: rotate(-90deg);
+}
+
+.user-info-name{
+	background: #fff;
+	width: 100%;
+	display: flex;
+	justify-content: flex-start;
+	align-items: center;
+	padding-top: 1rem;
+	padding-bottom: 1rem;
+	flex-direction: column;
+	padding-left: 2rem;
+	padding-right: 2rem;
+	padding-top: 1rem;
+	padding-bottom: 1rem;
+	margin-bottom: 2rem;
+}
+
+.username-title,
+.username{
+	width: 100%;
+	margin-top: 0.5rem;
+	margin-bottom: 0.3rem;
+}
+
+.username-title{
+    color: #777;
+}
+
+.username{
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+}
+
 .chat-container{
 	display: flex;
 	flex-direction: row;
@@ -365,8 +455,14 @@ img{
 	flex: auto;
 	display: flex;
 	flex-direction: column;
-	width: 50%;
+	width: 100%;
 	overflow: hidden;
+	transition: 0.5s ease all;
+}
+
+.chat>.header>.action-icon,
+.chatting-contact{
+	cursor: pointer;
 }
 
 .messages{
@@ -549,11 +645,12 @@ img{
 
 .contact-info{
 	height: 100%;
-	width: 50%;
+	width:0;
 	overflow: hidden;
 	background: #eee;
 	display: flex;
 	flex-direction: column;
+	transition: 0.5s ease all;
 }
 
 .contact-info > .info-container {
@@ -661,6 +758,26 @@ img{
 
 .contact-info-actions{
 	width: 100%;
+
+	padding-top: 1rem;
+	padding-bottom: 1rem;
+	padding-left: 2rem;
+	padding-right: 2rem;
+	padding-top: 1rem;
+	padding-bottom: 1rem;
 }
 
+.contact-fav-msgs,
+.delete-chat{
+	color: #222;
+	display: flex;
+	justify-content: space-between;
+	cursor: pointer;
+}
+
+.delete-chat{
+	margin-top: 1.2rem;
+	color: #ea0038;
+	justify-content: flex-start;
+}
 
