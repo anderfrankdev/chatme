@@ -50,6 +50,7 @@ img{
 	grid-template-rows: 1fr;
 	grid-template-areas: "chat aside";
 	overflow: hidden;
+	position: relative;
 }
 
 .aside-container{
@@ -320,7 +321,6 @@ img{
 	top: -2px;
 	transition: 0.5s all ease;
 	transform: rotate(90deg) translate(0,-300%);
-
 }
 
 .chat-card:hover  .options-icon{
@@ -456,7 +456,7 @@ img{
 	display: flex;
 	flex-direction: column;
 	width: 100%;
-	overflow: hidden;
+
 	transition: 0.5s ease all;
 }
 
@@ -472,7 +472,7 @@ img{
 }
 
 .chat-actions-container{
-	min-height: 3.875rem;
+
 	padding-left: 17px;
 	padding-right: 10px;
 	padding-top: 5px;
@@ -480,7 +480,7 @@ img{
 	display: flex;
 	background: #eee;
 	max-width: 100%;
-	overflow: hidden;
+	height: auto;
 	border-top: 1px solid #ddd;
 }
 
@@ -489,7 +489,7 @@ img{
 	display: flex;
 	flex-direction: row;
 	max-width: 100%;
-	overflow: hidden;
+	height: fit-content;
 }
 
 .send-other,
@@ -534,6 +534,7 @@ img{
 	padding-bottom: 1.3rem;
 	display: flex;
 	flex-direction: column;
+
 }
 
 .chatting-contact-lasttime{
@@ -553,6 +554,7 @@ img{
 	justify-content: flex-start;
 	align-items: flex-start;
 	margin-top: 1.4rem;
+	position: relative;
 }
 
 .msg-container{
@@ -564,6 +566,8 @@ img{
 	border-bottom-left-radius: 10px;
 	padding-bottom: 0.3rem;
 	padding-top: 0.5rem;
+	position: relative;
+	z-index: 1;
 }
 
 .tail{
@@ -623,6 +627,7 @@ img{
 	justify-content: space-between;
 	align-items: center;
 	width: 100%;
+	position: relative;
 }
 
 .forwarded>span>svg{
@@ -640,8 +645,35 @@ img{
 
  .options-msg{
  	cursor: pointer;
+ 	position: relative;
+ 	width: 1.5rem;
+ 	height: 1.5rem;
+ 	display: flex;
+ 	justify-content: center;
+ 	align-items: center;
  }
 
+.options-container{
+	position: absolute;
+	padding-top: 0.5rem;
+	padding-bottom: 0.5rem;
+	background: #fff;
+	z-index: 2;
+	box-shadow: 1px 1px 6px #444;
+}
+.options-container>p{
+	margin: 0;
+	width: 100%;
+	padding: 1rem;
+	padding-right: 2rem;
+	padding-left: 2rem;
+	text-align: left;
+	cursor: pointer;
+}
+
+.options-container>p:hover{
+	background: #eee;
+}
 
 .contact-info{
 	height: 100%;
@@ -781,3 +813,55 @@ img{
 	justify-content: flex-start;
 }
 
+#arrow-icon > .arrow-icon{
+	width: 100%;
+	height: 100%;
+	background: #bb55ee;;
+	clip-path: polygon(0% 20%, 59% 35%, 60% 0%, 100% 50%, 60% 100%, 60% 65%, 0% 80%);
+	transform: rotate(180deg);
+}
+#arrow-icon{
+	display: none;
+	margin-right: 1rem;
+	height: 40px;
+	width: 40px;
+}
+
+#arrow-icon:hover{
+	background: none;
+}
+
+@media (max-width: 31.25em){
+
+	.chat{
+		overflow: hidden;
+		transition: none;
+	}
+
+	#arrow-icon{
+		display: unset;
+	}
+	
+	.chat-container{
+		grid-area: none;
+		display: none;
+		height: 100hv;
+	}
+
+	.aside-container{
+		grid-area: main;
+	}
+	.main-container{
+		grid-template-rows: 1fr;
+		grid-template-columns: 1fr;
+		grid-template-areas: 
+		"main";
+	}
+	.contact-info{
+		position: absolute;
+		top: 0;
+		transition: none;
+	}
+
+	
+}

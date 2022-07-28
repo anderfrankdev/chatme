@@ -14,8 +14,8 @@
 	</script>
 </head>
 <body>
-	<div id="root" class="main-container">
-		<aside class="aside-container">
+	<div id="root" class="main-container" data-optionmenu>
+		<aside class="aside-container" id="aside">
 			<div class="header">
 				<div class="action-icon" id="user-photo">
 					<div><img src="/chat/assets/17.jpeg" alt=""></div>
@@ -373,9 +373,12 @@
 				</div>
 			</div>
 		</aside>
-		<main class="chat-container">
+		<main class="chat-container" id="chat-container">
 			<section class="chat" id="chat">
 				<div class="header" id="contact-header">
+					<div class="action-icon" id="arrow-icon">
+						<div class="arrow-icon"></div>
+					</div>
 					<div class="action-icon" id="contact-photo">
 						<div><img src="/chat/assets/16.jpeg" alt=""></div>
 					</div>
@@ -393,7 +396,7 @@
 					</div>
 				</div>
 				<div class="messages">
-					<div class="message sent">
+					<div class="message sent" id="123456789asd">
 						<div class="tail out"></div>
 						<div class="msg-container">
 							<div class="forwarded">
@@ -477,8 +480,8 @@
 							<div class="sent-time">6:30 PM</div>
 						</div>
 					</div>
-					<div class="message received">
-						
+					<div class="message received" id="msg">
+
 						<div class="msg-container">
 								
 							<div class="forwarded">
@@ -488,6 +491,7 @@
 								</span>
 								<div class="options-msg">
 									<div class="options-icon"></div>
+									
 								</div>
 							</div>
 							<div class="msg">Lorem ipsum, dolor sit amet, consectetur adipisicing elit. Labore aspernatur, excepturi necessitatibus autem fugiat fuga aliquid, alias non, a amet consequatur expedita aliquam voluptatem beatae doloremque, vel. Non, quidem, enim.</div>
