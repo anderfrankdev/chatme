@@ -5,6 +5,7 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<title>Chatme</title>
 	<link rel="stylesheet" href="/chat/styles/styles.css">
+    <script src="https://unpkg.com/redux@latest/dist/redux.min.js"></script>
 	<script type="module">
 		import {app} from "/chat/js/App.js"
 
@@ -24,7 +25,7 @@
 					<div class="action-icon" id="new-message">
 						<img src="/chat/assets/message.svg" alt="">
 					</div>
-					<div class="action-icon" id="options">
+					<div class="action-icon" id="user-options">
 						<svg viewBox="0 0 24 24" width="24" height="24" class=""><path fill="currentColor" d="M12 7a2 2 0 1 0-.001-4.001A2 2 0 0 0 12 7zm0 2a2 2 0 1 0-.001 3.999A2 2 0 0 0 12 9zm0 6a2 2 0 1 0-.001 3.999A2 2 0 0 0 12 15z"></path></svg>
 					</div>
 				</div>
@@ -45,26 +46,69 @@
 				</div>
 			</div>
 			<div class="contacts-chat-container">
-				<div class="chat-card">
+				<div id="pinned-chat-cards">
+					<div class="chat-card" data-pinned="pinned">
+						<div class="chat-photo">
+							<div>
+								<img src="/chat/assets/1.jpeg" alt="">
+							</div>
+						</div>
+						<div class="chat-info">
+							<div class="chat-name">
+								<p class="contact-name">Karem</p>
+								<p class="last-msg-time"><time datetime="14:54">14:54</time></p>
+							</div>
+							<div class="chat-last-message">
+								<p class="last-msg-chat">Lorem ipsum dolor Lorem ipsum dolor sit, amet consectetur adipisicing elit. Exercitationem, ratione, hic aliquid a, delectus necessitatibus aperiam quibusdam sint pariatur ipsam odit autem iure, laudantium porro corrupti impedit esse! Nihil, ullam.</p>
+								<div class="chat-options">
+									<svg width="13" height="15" class="pinup-icon" style=""><path fill="currentColor" d="M12.074 4.21 8.7 8.232l.116 4.233a.4.4 0 0 1-.657.318L.43 6.297a.4.4 0 0 1 .199-.702l4.196-.622L8.196.957a.63.63 0 0 1 .887-.078l2.914 2.445a.63.63 0 0 1 .077.887ZM1.294 14.229a.713.713 0 0 1-1.09-.915l2.674-3.64 1.536 1.288-3.12 3.267Z"></path></svg>
+									<p class="unread-amount">1</p>
+									<div class="options-icon"></div>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="chat-card" data-pinned="pinned">
+						<div class="chat-photo">
+							<div>
+								<img src="/chat/assets/1.jpeg" alt="">
+							</div>
+						</div>
+						<div class="chat-info">
+							<div class="chat-name">
+								<p class="contact-name">Karem</p>
+								<p class="last-msg-time"><time datetime="14:54">14:54</time></p>
+							</div>
+							<div class="chat-last-message">
+								<p class="last-msg-chat">Lorem ipsum dolor Lorem ipsum dolor sit, amet consectetur adipisicing elit. Exercitationem, ratione, hic aliquid a, delectus necessitatibus aperiam quibusdam sint pariatur ipsam odit autem iure, laudantium porro corrupti impedit esse! Nihil, ullam.</p>
+								<div class="chat-options">
+									<svg width="13" height="15" class="pinup-icon" style=""><path fill="currentColor" d="M12.074 4.21 8.7 8.232l.116 4.233a.4.4 0 0 1-.657.318L.43 6.297a.4.4 0 0 1 .199-.702l4.196-.622L8.196.957a.63.63 0 0 1 .887-.078l2.914 2.445a.63.63 0 0 1 .077.887ZM1.294 14.229a.713.713 0 0 1-1.09-.915l2.674-3.64 1.536 1.288-3.12 3.267Z"></path></svg>
+									<p class="unread-amount">1</p>
+									<div class="options-icon"></div>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="chat-card">
 					<div class="chat-photo">
 						<div>
-							<img src="/chat/assets/1.jpeg" alt="">
+							<img src="/chat/assets/2.jpeg" alt="">
 						</div>
 					</div>
 					<div class="chat-info">
 						<div class="chat-name">
-							<p class="contact-name">Karem</p>
+							<p class="contact-name">Maria</p>
 							<p class="last-msg-time"><time datetime="14:54">14:54</time></p>
 						</div>
 						<div class="chat-last-message">
 							<p class="last-msg-chat">Lorem ipsum dolor Lorem ipsum dolor sit, amet consectetur adipisicing elit. Exercitationem, ratione, hic aliquid a, delectus necessitatibus aperiam quibusdam sint pariatur ipsam odit autem iure, laudantium porro corrupti impedit esse! Nihil, ullam.</p>
 							<div class="chat-options">
-								<svg width="13" height="15" class="pinup-icon" style=""><path fill="currentColor" d="M12.074 4.21 8.7 8.232l.116 4.233a.4.4 0 0 1-.657.318L.43 6.297a.4.4 0 0 1 .199-.702l4.196-.622L8.196.957a.63.63 0 0 1 .887-.078l2.914 2.445a.63.63 0 0 1 .077.887ZM1.294 14.229a.713.713 0 0 1-1.09-.915l2.674-3.64 1.536 1.288-3.12 3.267Z"></path></svg>
 								<p class="unread-amount">1</p>
 								<div class="options-icon"></div>
 							</div>
 						</div>
 					</div>
+				</div>
 				</div>
 				<div class="chat-card">
 					<div class="chat-photo">
@@ -390,100 +434,31 @@
 						<div class="action-icon" id="new-message">
 							<img src="/chat/assets/magnifying-glass.svg" alt="">
 						</div>
-						<div class="action-icon" id="options">
+						<div class="action-icon" id="contact-options">
 							<svg viewBox="0 0 24 24" width="24" height="24" class=""><path fill="currentColor" d="M12 7a2 2 0 1 0-.001-4.001A2 2 0 0 0 12 7zm0 2a2 2 0 1 0-.001 3.999A2 2 0 0 0 12 9zm0 6a2 2 0 1 0-.001 3.999A2 2 0 0 0 12 15z"></path></svg>
 						</div>
 					</div>
 				</div>
-				<div class="messages">
-					<div class="message sent" id="123456789asd">
-						<div class="tail out"></div>
-						<div class="msg-container">
-							<div class="forwarded">
-								<div class="options-msg">
-									<div class="options-icon"></div>
-								</div>
-							</div>
-							<div class="msg">Lorem ipsum, dolor sit amet, consectetur adipisicing elit. Labore aspernatur, excepturi necessitatibus autem fugiat fuga aliquid, alias non, a amet consequatur expedita aliquam voluptatem beatae doloremque, vel. Non, quidem, enim.</div>
-							<div class="sent-time">6:30 PM</div>
-						</div>
-					</div>
-					<div class="message received">
-						
-						<div class="msg-container">
-								
-							<div class="forwarded">
-								<span>
-									<svg width="16" height="16" viewBox="0 0 16 16" class="" style="margin-right: 0.3rem;"><path d="M9.519 3.875a.54.54 0 0 1 .922-.382l4.03 4.034a.54.54 0 0 1 0 .764l-4.03 4.034a.54.54 0 0 1-.922-.383v-1.821c-3.398 0-5.886.97-7.736 3.074-.164.186-.468.028-.402-.211.954-3.449 3.284-6.67 8.138-7.363V3.875Z" fill="currentColor"></path></svg>
-									Forwarded
-								</span>
-								<div class="options-msg">
-									<div class="options-icon"></div>
-								</div>
-							</div>
-							<div class="msg">Lorem ipsum, dolor sit amet, consectetur adipisicing elit. Labore aspernatur, excepturi necessitatibus autem fugiat fuga aliquid, alias non, a amet consequatur expedita aliquam voluptatem beatae doloremque, vel. Non, quidem, enim.</div>
-							<div class="sent-time">6:30 PM</div>
-						</div>
-						<div class="tail in"></div>
-					</div>
-					<div class="message sent">
-						<div class="tail out"></div>
-						<div class="msg-container">
-							<div class="forwarded">
-								<div class="options-msg">
-									<div class="options-icon"></div>
-								</div>
-							</div>
-							<div class="msg">Lorem ipsum, dolor sit amet, consectetur adipisicing elit. Labore aspernatur, excepturi necessitatibus autem fugiat fuga aliquid, alias non, a amet consequatur expedita aliquam voluptatem beatae doloremque, vel. Non, quidem, enim.</div>
-							<div class="sent-time">6:30 PM</div>
-						</div>
-					</div>
-					<div class="message received">
-						
-						<div class="msg-container">
-								
-							<div class="forwarded">
-								<span>
-									<svg width="16" height="16" viewBox="0 0 16 16" class="" style="margin-right: 0.3rem;"><path d="M9.519 3.875a.54.54 0 0 1 .922-.382l4.03 4.034a.54.54 0 0 1 0 .764l-4.03 4.034a.54.54 0 0 1-.922-.383v-1.821c-3.398 0-5.886.97-7.736 3.074-.164.186-.468.028-.402-.211.954-3.449 3.284-6.67 8.138-7.363V3.875Z" fill="currentColor"></path></svg>
-									Forwarded
-								</span>
-								<div class="options-msg">
-									<div class="options-icon"></div>
-								</div>
-							</div>
-							<div class="msg">Lorem ipsum, dolor sit amet, consectetur adipisicing elit. Labore aspernatur, excepturi necessitatibus autem fugiat fuga aliquid, alias non, a amet consequatur expedita aliquam voluptatem beatae doloremque, vel. Non, quidem, enim.</div>
-							<div class="sent-time">6:30 PM</div>
-						</div>
-						<div class="tail in"></div>
-					</div>
-					<div class="message sent">
-						<div class="tail out"></div>
-						<div class="msg-container">
-							<div class="forwarded">
-								<div class="options-msg">
-									<div class="options-icon"></div>
-								</div>
-							</div>
-							<div class="msg">Lorem ipsum, dolor sit amet, consectetur adipisicing elit. Labore aspernatur, excepturi necessitatibus autem fugiat fuga aliquid, alias non, a amet consequatur expedita aliquam voluptatem beatae doloremque, vel. Non, quidem, enim.</div>
-							<div class="sent-time">6:30 PM</div>
-						</div>
-					</div>
-					<div class="message sent">
-						<div class="tail out"></div>
-						<div class="msg-container">
-							<div class="forwarded">
-								<div class="options-msg">
-									<div class="options-icon"></div>
-								</div>
-							</div>
-							<div class="msg">Lorem ipsum, dolor sit amet, consectetur adipisicing elit. Labore aspernatur, excepturi necessitatibus autem fugiat fuga aliquid, alias non, a amet consequatur expedita aliquam voluptatem beatae doloremque, vel. Non, quidem, enim.</div>
-							<div class="sent-time">6:30 PM</div>
-						</div>
-					</div>
-					<div class="message received" id="msg">
+				<div class="messages" id="messages-container">
 
+					<div class="message sent" id="123456789asd">
+						<input type="checkbox" class="select-message">
+						<div class="tail out"></div>
 						<div class="msg-container">
-								
+							<div class="forwarded">
+								<div class="options-msg">
+									<div class="options-icon"></div>
+								</div>
+							</div>
+							<div class="msg">Lorem ipsum, dolor sit amet, consectetur adipisicing elit. Labore aspernatur, excepturi necessitatibus autem fugiat fuga aliquid, alias non, a amet consequatur expedita aliquam voluptatem beatae doloremque, vel. Non, quidem, enim.</div>
+							<div class="sent-time">6:30 PM</div>
+						</div>
+
+					</div>
+					<div class="message received">
+						<input type="checkbox" class="select-message">
+
+						<div class="msg-container">								
 							<div class="forwarded">
 								<span>
 									<svg width="16" height="16" viewBox="0 0 16 16" class="" style="margin-right: 0.3rem;"><path d="M9.519 3.875a.54.54 0 0 1 .922-.382l4.03 4.034a.54.54 0 0 1 0 .764l-4.03 4.034a.54.54 0 0 1-.922-.383v-1.821c-3.398 0-5.886.97-7.736 3.074-.164.186-.468.028-.402-.211.954-3.449 3.284-6.67 8.138-7.363V3.875Z" fill="currentColor"></path></svg>
@@ -491,13 +466,145 @@
 								</span>
 								<div class="options-msg">
 									<div class="options-icon"></div>
-									
 								</div>
 							</div>
 							<div class="msg">Lorem ipsum, dolor sit amet, consectetur adipisicing elit. Labore aspernatur, excepturi necessitatibus autem fugiat fuga aliquid, alias non, a amet consequatur expedita aliquam voluptatem beatae doloremque, vel. Non, quidem, enim.</div>
 							<div class="sent-time">6:30 PM</div>
 						</div>
-						<div class="tail in"></div>
+						<div class="tail in">
+						</div>
+					</div>
+					<div class="message sent" id="">
+						<input type="checkbox" class="select-message">
+						<div class="tail out"></div>
+						<div class="msg-container">
+							<div class="forwarded">
+								<div class="options-msg">
+									<div class="options-icon"></div>
+								</div>
+							</div>
+							<div class="msg">Lorem ipsum, dolor sit amet, consectetur adipisicing elit. Labore aspernatur, excepturi necessitatibus autem fugiat fuga aliquid, alias non, a amet consequatur expedita aliquam voluptatem beatae doloremque, vel. Non, quidem, enim.</div>
+							<div class="sent-time">6:30 PM</div>
+						</div>
+
+					</div>
+					<div class="message received">
+						<input type="checkbox" class="select-message">
+
+						<div class="msg-container">								
+							<div class="forwarded">
+								<span>
+									<svg width="16" height="16" viewBox="0 0 16 16" class="" style="margin-right: 0.3rem;"><path d="M9.519 3.875a.54.54 0 0 1 .922-.382l4.03 4.034a.54.54 0 0 1 0 .764l-4.03 4.034a.54.54 0 0 1-.922-.383v-1.821c-3.398 0-5.886.97-7.736 3.074-.164.186-.468.028-.402-.211.954-3.449 3.284-6.67 8.138-7.363V3.875Z" fill="currentColor"></path></svg>
+									Forwarded
+								</span>
+								<div class="options-msg">
+									<div class="options-icon"></div>
+								</div>
+							</div>
+							<div class="msg">Lorem ipsum, dolor sit amet, consectetur adipisicing elit. Labore aspernatur, excepturi necessitatibus autem fugiat fuga aliquid, alias non, a amet consequatur expedita aliquam voluptatem beatae doloremque, vel. Non, quidem, enim.</div>
+							<div class="sent-time">6:30 PM</div>
+						</div>
+						<div class="tail in">
+						</div>
+					</div>
+					<div class="message sent" id="">
+						<input type="checkbox" class="select-message">
+						<div class="tail out"></div>
+						<div class="msg-container">
+							<div class="forwarded">
+								<div class="options-msg">
+									<div class="options-icon"></div>
+								</div>
+							</div>
+							<div class="msg">Lorem ipsum, dolor sit amet, consectetur adipisicing elit. Labore aspernatur, excepturi necessitatibus autem fugiat fuga aliquid, alias non, a amet consequatur expedita aliquam voluptatem beatae doloremque, vel. Non, quidem, enim.</div>
+							<div class="sent-time">6:30 PM</div>
+						</div>
+
+					</div>
+					<div class="message received">
+						<input type="checkbox" class="select-message">
+
+						<div class="msg-container">								
+							<div class="forwarded">
+								<span>
+									<svg width="16" height="16" viewBox="0 0 16 16" class="" style="margin-right: 0.3rem;"><path d="M9.519 3.875a.54.54 0 0 1 .922-.382l4.03 4.034a.54.54 0 0 1 0 .764l-4.03 4.034a.54.54 0 0 1-.922-.383v-1.821c-3.398 0-5.886.97-7.736 3.074-.164.186-.468.028-.402-.211.954-3.449 3.284-6.67 8.138-7.363V3.875Z" fill="currentColor"></path></svg>
+									Forwarded
+								</span>
+								<div class="options-msg">
+									<div class="options-icon"></div>
+								</div>
+							</div>
+							<div class="msg">Lorem ipsum, dolor sit amet, consectetur adipisicing elit. Labore aspernatur, excepturi necessitatibus autem fugiat fuga aliquid, alias non, a amet consequatur expedita aliquam voluptatem beatae doloremque, vel. Non, quidem, enim.</div>
+							<div class="sent-time">6:30 PM</div>
+						</div>
+						<div class="tail in">
+						</div>
+					</div>
+					<div class="message sent" id="">
+						<input type="checkbox" class="select-message">
+						<div class="tail out"></div>
+						<div class="msg-container">
+							<div class="forwarded">
+								<div class="options-msg">
+									<div class="options-icon"></div>
+								</div>
+							</div>
+							<div class="msg">Lorem ipsum, dolor sit amet, consectetur adipisicing elit. Labore aspernatur, excepturi necessitatibus autem fugiat fuga aliquid, alias non, a amet consequatur expedita aliquam voluptatem beatae doloremque, vel. Non, quidem, enim.</div>
+							<div class="sent-time">6:30 PM</div>
+						</div>
+
+					</div>
+					<div class="message received">
+						<input type="checkbox" class="select-message">
+
+						<div class="msg-container">								
+							<div class="forwarded">
+								<span>
+									<svg width="16" height="16" viewBox="0 0 16 16" class="" style="margin-right: 0.3rem;"><path d="M9.519 3.875a.54.54 0 0 1 .922-.382l4.03 4.034a.54.54 0 0 1 0 .764l-4.03 4.034a.54.54 0 0 1-.922-.383v-1.821c-3.398 0-5.886.97-7.736 3.074-.164.186-.468.028-.402-.211.954-3.449 3.284-6.67 8.138-7.363V3.875Z" fill="currentColor"></path></svg>
+									Forwarded
+								</span>
+								<div class="options-msg">
+									<div class="options-icon"></div>
+								</div>
+							</div>
+							<div class="msg">Lorem ipsum, dolor sit amet, consectetur adipisicing elit. Labore aspernatur, excepturi necessitatibus autem fugiat fuga aliquid, alias non, a amet consequatur expedita aliquam voluptatem beatae doloremque, vel. Non, quidem, enim.</div>
+							<div class="sent-time">6:30 PM</div>
+						</div>
+						<div class="tail in">
+						</div>
+					</div>
+					<div class="message sent" id="">
+						<input type="checkbox" class="select-message">
+						<div class="tail out"></div>
+						<div class="msg-container">
+							<div class="forwarded">
+								<div class="options-msg">
+									<div class="options-icon"></div>
+								</div>
+							</div>
+							<div class="msg">Lorem ipsum, dolor sit amet, consectetur adipisicing elit. Labore aspernatur, excepturi necessitatibus autem fugiat fuga aliquid, alias non, a amet consequatur expedita aliquam voluptatem beatae doloremque, vel. Non, quidem, enim.</div>
+							<div class="sent-time">6:30 PM</div>
+						</div>
+
+					</div>
+					<div class="message received">
+						<input type="checkbox" class="select-message">
+
+						<div class="msg-container">								
+							<div class="forwarded">
+								<span>
+									<svg width="16" height="16" viewBox="0 0 16 16" class="" style="margin-right: 0.3rem;"><path d="M9.519 3.875a.54.54 0 0 1 .922-.382l4.03 4.034a.54.54 0 0 1 0 .764l-4.03 4.034a.54.54 0 0 1-.922-.383v-1.821c-3.398 0-5.886.97-7.736 3.074-.164.186-.468.028-.402-.211.954-3.449 3.284-6.67 8.138-7.363V3.875Z" fill="currentColor"></path></svg>
+									Forwarded
+								</span>
+								<div class="options-msg">
+									<div class="options-icon"></div>
+								</div>
+							</div>
+							<div class="msg">Lorem ipsum, dolor sit amet, consectetur adipisicing elit. Labore aspernatur, excepturi necessitatibus autem fugiat fuga aliquid, alias non, a amet consequatur expedita aliquam voluptatem beatae doloremque, vel. Non, quidem, enim.</div>
+							<div class="sent-time">6:30 PM</div>
+						</div>
+						<div class="tail in">
+						</div>
 					</div>
 				</div>
 				<div class="chat-actions-container">
@@ -515,6 +622,21 @@
 							<div class="send-icon">
 								<svg viewBox="0 0 24 24" width="24" height="24" class=""><path fill="currentColor" d="M1.101 21.757 23.8 12.028 1.101 2.3l.011 7.912 13.623 1.816-13.623 1.817-.011 7.912z"></path></svg>
 							</div>
+						</div>
+					</div>
+					<div class="selection-actions" id="selection-actions">
+						<div class="action-icon small" id="close-selected-messages">
+							<svg fill="currentColor" viewBox="0 0 24 24" width="24" height="24" class=""><path d="m19.1 17.2-5.3-5.3 5.3-5.3-1.8-1.8-5.3 5.4-5.3-5.3-1.8 1.7 5.3 5.3-5.3 5.3L6.7 19l5.3-5.3 5.3 5.3 1.8-1.8z"></path></svg>
+						</div>
+						<div class="selected-count" id="selected-messages-count">0 Selected</div>
+						<div class="action-icon small">
+							<svg viewBox="0 0 24 24" width="24" height="24" class=""><path fill="currentColor" d="m11.1 16.8-4.4 3.1c-.7.5-1.5-.1-1.3-.9L7 13.9c.1-.3 0-.7-.3-.9L2.4 9.7c-.6-.4-.3-1.4.5-1.4l5.4-.1c.3 0 .6-.2.7-.6l1.8-5.1c.2-.7 1.3-.7 1.5 0l1.8 5.1c.1.3.4.5.7.5l5.4.1c.8 0 1.1 1 .5 1.4L16.4 13c-.3.2-.4.5-.3.9l1.6 5.2c.2.7-.6 1.3-1.2.9L12 16.8c-.3-.2-.6-.2-.9 0z"></path></svg>
+						</div>
+						<div class="action-icon small">
+							<svg viewBox="0 0 24 24" width="24" height="24" class=""><path fill="currentColor" d="M6 18c0 1.1.9 2 2 2h8c1.1 0 2-.9 2-2V6H6v12zM19 3h-3.5l-1-1h-5l-1 1H5v2h14V3z"></path></svg>
+						</div>
+						<div class="action-icon small">
+							<span data-testid="forward" data-icon="forward" class=""><svg viewBox="0 0 24 24" width="24" height="24" class=""><path fill="currentColor" d="M14.278 4.813c0-.723.873-1.085 1.383-.574l6.045 6.051a.81.81 0 0 1 0 1.146l-6.045 6.051a.81.81 0 0 1-1.383-.574v-2.732c-5.096 0-8.829 1.455-11.604 4.611-.246.279-.702.042-.602-.316 1.43-5.173 4.925-10.004 12.206-11.045V4.813z"></path></svg></span>
 						</div>
 					</div>
 				</div>
@@ -573,8 +695,7 @@
 						</div>
 
 					</div>
-				</div>
-				
+				</div>				
 			</section>
 		</main>
 	</div>

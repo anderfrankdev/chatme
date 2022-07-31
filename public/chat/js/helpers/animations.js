@@ -1,3 +1,9 @@
+import {
+	boundSelectMessage,
+	boundUnselectMessage,
+	boundUnselectSeveral,
+} from '../state/actions.js'
+
 const displayContactInfo = ( ) => {
 
 	const contactPhoto = document.getElementById("contact-photo");
@@ -13,6 +19,21 @@ const displayContactInfo = ( ) => {
 		})
 
 	});
+
+	document.addEventListener("click",e=>{
+		if (e.target.parentElement.id!="option-menu") return
+		if (e.target.id=="contact-info") {
+			
+			if (!window.matchMedia("(max-width: 31.25em)").matches) {
+				chat.style.width="50%"
+				contactInfo.style.width="50%"
+			}
+			if (window.matchMedia("(max-width: 31.25em)").matches) {
+				chat.style.width="0"
+				contactInfo.style.width="100%"
+			}
+		}
+	})
 
 	const closeInfo = document.getElementById("close-contact-info");
 
@@ -45,27 +66,23 @@ const displayUserInfo = ( ) => {
 	});
 	
 }
+const getParent = (e,parentClass) => {
 
-const displayOptionMenu = () => {
+	let parent;
 
-	
+	parent = e.target
 
-	
+	while(!parent.matches(`.${parentClass}`)){
 
-	const getParent = (e,parentClass) => {
+		parent = parent.parentElement
 
-		let parent;
-
-		parent = e.target.parentElement
-
-		while(!parent.matches(`.${parentClass}`)){
-
-			parent = parent.parentElement
-
-		}
-
-		return parent
 	}
+	return parent
+}
+const displayOptionMenu = () => {
+	
+
+	
 
 	const root = document.getElementById("root")
 
@@ -74,6 +91,8 @@ const displayOptionMenu = () => {
 
 	const optionChatIcons = document.querySelectorAll(".chat-options")
 	const chatCards = document.querySelectorAll(".chat-card")
+	const userOptions = document.getElementById("user-options")
+	const contactOptions = document.getElementById("contact-options")
 	
 	const actions = (options,parentClass) =>{
 
@@ -97,7 +116,7 @@ const displayOptionMenu = () => {
 				options.forEach(option=>{
 					optionMenu.innerHTML+=
 					`
-						<p class="option" id="${option.toLowerCase()}">${option}</p>
+						<p class="option" id="${option.toLowerCase().replace(" ","-")}">${option}</p>
 					`
 				})
 
@@ -114,9 +133,10 @@ const displayOptionMenu = () => {
 				 	e.clientX}px`
 
 				const optionId = getParent(e,parentClass).id
-				console.log(optionId)
 				optionMenu.dataset.optionid = optionId
 				optionMenu.dataset.functionality = parentClass
+
+
 				
 			}
 		}
@@ -144,21 +164,48 @@ const displayOptionMenu = () => {
 
 		chatCards.forEach(card=>{
 			card.addEventListener("contextmenu", 
-				actions(["Archive","Disable notifications","Unpin","Delete"],
-						"chat-card"))
+				actions(
+					["Archive","Disable notifications","Unpin","Delete"],
+					"chat-card"
+				)
+			)
 		});
 
+		userOptions.addEventListener("click",e=>{
+			return actions(
+				["New group","Starred messages","Settings","Log out"],
+				"header"
+			)(e)
+		})
+
+		contactOptions.addEventListener("click",e=>{
+			return actions(
+				[	
+					"Contact info",
+					"Select messages",
+					"Close chat",
+					"Mute notifications",
+					"Disappearing messages",
+					"Clear messages",
+					"Delete chat"
+				],
+				"header"
+			)(e)
+		})
+
+}
+
+const checkClasses = (e,classes)=>{
+	let hasClass = false
+	classes.forEach(c=>{
+		if(e.target.matches(`.${c}`)) hasClass = true
+	})
+	return hasClass
 }
 
 const deleteOptionMenu = () => {
 	
-	const checkClasses = (e,classes)=>{
-		let hasClass = false
-		classes.forEach(c=>{
-			if(e.target.matches(`.${c}`)) hasClass = true
-		})
-		return hasClass
-	}
+	
 
 	const allowedClasses=
 	["options-msg",
@@ -173,11 +220,7 @@ const deleteOptionMenu = () => {
 
 		optionMenu.contains(e.target)
 		if (optionMenu && !checkClasses(e,["options-msg","chat-options"])){
-
-			if (!optionMenu.contains(e.target)) {
 				optionMenu.remove()
-			}
-		
 		}
 
 		return
@@ -191,15 +234,16 @@ const displayChatMobile = () => {
 	const chatCards = document.querySelectorAll(".chat-card")
 	const aside = document.getElementById("aside")
 	const chat = document.getElementById("chat-container")
-	console.log(chatCards)
+
 	chatCards.forEach(el=>{
 		el.addEventListener("click",e =>{
 			console.log()
 			if(!window.matchMedia("(max-width: 31.25em)").matches) return
-			aside.style.gridArea= "none";
-			aside.style.display= "none";
-			chat.style.gridArea= "main";
-			chat.style.display="unset";
+			if (e.target.matches(".chat-options")) {
+				return
+			}
+			aside.style.left= "150%";
+			chat.style.left= "0";
 			console.log("Working")
 		})
 	})
@@ -214,10 +258,9 @@ const displayAsideMobile = ()=>{
 	arrow.addEventListener("click",e =>{
 		console.log()
 		if(!window.matchMedia("(max-width: 31.25em)").matches) return
-		aside.style.gridArea= "main";
-		aside.style.display= "unset";
-		chat.style.gridArea= "none";
-		chat.style.display="none";
+
+		aside.style.left= "0";
+		chat.style.left= "150%";
 		console.log("Working")
 	})
 }
@@ -234,12 +277,13 @@ const displayContactMobile = ( ) => {
 		el.addEventListener("click",e=>{
 			if(!window.matchMedia("(max-width: 31.25em)").matches) return
 			chat.style.width="0"
-
 			contactInfo.style.width="100%"
 
 		})
 
 	});
+
+
 
 	const closeInfo = document.getElementById("close-contact-info");
 
@@ -251,11 +295,100 @@ const displayContactMobile = ( ) => {
 
 		
 	});
+
+	window.addEventListener("resize",()=>{
+		if(window.matchMedia("(max-width: 31.25em)").matches) return
+		if(aside.style.left== "0px"&chat.style.left== "0px") return
+		aside.style.left= "0";
+		chat.style.left= "0";
+		console.log("resize")
+	})
 	
 }
 
+const selectMessages=(store = Redux.createStore())=>{
+	
+	const messages = document.querySelectorAll(".message")
+	const messageContainer = document.getElementById("messages-container")
+	const count = document.getElementById("selected-messages-count")
+	
+	messages.forEach(message=>{
+		message.addEventListener("click",e=>{
+			
+			if (messageContainer.dataset.mode!="select-messages") return
 
-const animations = () => {
+			const parent = getParent(e,"message")
+
+			const checkbox = parent.querySelector(".select-message")
+
+			if(e.target==checkbox) return
+			
+			
+			if(!checkbox.checked){
+				parent.style.background="#bb55ee22"
+				checkbox.checked=true
+				boundSelectMessage(parent.id,store)
+				count.innerHTML = `${store.getState().selectedMessages.size} selected`
+				return
+			}
+			if (checkbox.checked) {
+				parent.style.background="#fff"	
+				checkbox.checked=false
+				boundUnselectMessage(parent.id,store)
+				count.innerHTML = `${store.getState().selectedMessages.size} selected`
+				return
+			}
+		})
+	})
+	
+	const selectionCloseButton = document.getElementById("close-selected-messages")
+	const selectionActions =document.getElementById("selection-actions")
+	const messageCheckboxes = document.querySelectorAll(".select-message")
+
+	selectionCloseButton.addEventListener("click",e=>{
+		selectionActions.style.top="150%"
+		messageContainer.dataset.mode="chat"
+		boundUnselectSeveral("ALL",store)
+		count.innerHTML = `${store.getState().selectedMessages.size} selected`
+		messageCheckboxes.forEach(checkbox=>{
+			checkbox.style.width="0";
+			checkbox.checked=false
+		})
+
+		messages.forEach(message=>{
+			message.style.background="#fff"
+		})
+	})
+
+	document.addEventListener("click",e=>{
+
+		if (e.target.id!="select-messages") return
+		messageContainer.dataset.mode="select-messages"
+
+		selectionActions.style.top="0"
+
+		
+		messageCheckboxes.forEach(checkbox=>{
+			checkbox.style.width="1.3rem"
+			checkbox.addEventListener("click",e=>{
+				if(e.target.checked){
+					e.target.parentElement.style.background="#bb55ee22"
+					boundSelectMessage(parent.id,store)
+					count.innerHTML = `${store.getState().selectedMessages.size} selected`
+				}
+				if (!e.target.checked) {
+					e.target.parentElement.style.background="#fff"
+					boundUnselectMessage(parent.id,store)
+					count.innerHTML = `${store.getState().selectedMessages.size} selected`
+				}
+			})
+		})
+	})
+
+}
+
+
+const animations = (store=Redux.createStore()) => {
 
 	displayContactInfo()
 	displayUserInfo()
@@ -265,16 +398,9 @@ const animations = () => {
 	displayChatMobile()
 	displayAsideMobile()
 	displayContactMobile()
+	selectMessages(store)
 }
 
 export {
 	animations
 }
-
-/*
-<div class="options-container">
-	<p class="option">Reply</p>
-	<p class="option">Resend</p>
-	<p class="option">Highlight</p>
-	<p class="option">Delete</p>
-</div>*/
