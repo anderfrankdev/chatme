@@ -572,7 +572,6 @@ img{
 	grid-template-columns: auto auto 1fr ;
 	margin-top: 1.4rem;
 	position: relative;
-	flex: auto;
 	grid-template-areas: "checkbox tail msg";
 }
 
@@ -609,6 +608,7 @@ img{
 	padding-top: 0.5rem;
 	position: relative;
 	z-index: 1;
+	height: fit-content;
 }
 
 .tail{
@@ -658,6 +658,47 @@ img{
 
 .message.received > .msg-container{
 	background: #eee;
+}
+.sent-photos-container{
+	flex: auto;
+	background: #fff;
+}
+
+#contact-sent-photos{
+	display: flex;
+	flex-direction: column;
+	overflow: hidden;
+}
+
+#sent-photos-container{
+	overflow: auto;
+	display: flex;
+	flex-wrap: wrap;
+	align-items: flex-start;
+	justify-content: flex-start;
+	align-content: flex-start;
+}
+
+.sent-photos-container > .photo-container {
+	width: 20%;
+	margin-left: 1rem;
+	margin-top: 1rem;
+    height: auto;
+    cursor: pointer;
+}
+#contact-starred-messages{
+	display: flex;
+	flex-direction: column;
+	overflow: hidden;
+}
+.starred-messages-container{
+	display: flex;
+	flex: auto;
+	background: #fff;
+	overflow-y: auto;
+	flex-direction: column;
+	padding-bottom: 2rem;
+	align-items: flex-start;
 }
 
 .forwarded{
@@ -726,6 +767,7 @@ img{
 	display: flex;
 	flex-direction: column;
 	transition: 0.5s ease all;
+	position: relative;
 }
 
 .contact-info > .info-container {

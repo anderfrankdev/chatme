@@ -46,24 +46,64 @@ const displayContactInfo = ( ) => {
 	
 }
 
-const displayUserInfo = ( ) => {
+const displayOptionalInfo = ( ) => {
 
-	const userPhoto = document.getElementById("user-photo");
-	const userProfile = document.getElementById("user-profile");
-		
+	const userPhoto 	 = document.getElementById("user-photo");
+	const newMessageIcon = document.getElementById("new-message");
+	const userProfile    = document.getElementById("user-profile");
+	const searchUser     = document.getElementById("search-user");
+	const sentPhotos     = document.getElementById("contact-sent-photos");
+	const contactPhotosTitleToClick  = document.getElementById("contact-photos-title");
+	const staredMessagesTitleToClick = document.getElementById("contact-fav-msgs");
+	const staredMessagesContainer    = document.getElementById("contact-starred-messages");
+
+	newMessageIcon.addEventListener("click",e=>{
+
+		searchUser.style.top="0"
+	})
+
+	contactPhotosTitleToClick.addEventListener("click",e=>{
+
+		sentPhotos.style.top="0"
+	})
+
 	userPhoto.addEventListener("click",e=>{
 
 		userProfile.style.top="0"
 	})
 
+	staredMessagesTitleToClick.addEventListener("click",e=>{
+
+		staredMessagesContainer.style.top="0"
+	})
+
 	
 	const closeInfo = document.getElementById("close-user-info");
-
-	closeInfo.addEventListener("click",e=>{
+	const closeSearch = document.getElementById("close-user-search");
+	const closePhotos = document.getElementById("close-contact-photos");
+	const closeStarred = document.getElementById("close-starred-messages")
 	
+	closeStarred.addEventListener("click",e=>{
+		staredMessagesContainer.style.top="105%"
+	})
 
-		userProfile.style.top="100%"
+	closeSearch.addEventListener("click",e=>{
+		searchUser.style.top="110%"
+	})
+	
+	closeInfo.addEventListener("click",e=>{
+
+		userProfile.style.top="110%"
 	});
+
+	closePhotos.addEventListener("click",e=>{
+
+		sentPhotos.style.top="110%"
+	});
+
+
+
+
 	
 }
 const getParent = (e,parentClass) => {
@@ -391,7 +431,7 @@ const selectMessages=(store = Redux.createStore())=>{
 const animations = (store=Redux.createStore()) => {
 
 	displayContactInfo()
-	displayUserInfo()
+	displayOptionalInfo()
 	
 	deleteOptionMenu()
 	displayOptionMenu()

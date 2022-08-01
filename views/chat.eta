@@ -416,6 +416,24 @@
 					</div>
 				</div>
 			</div>
+			<div class="user-profile" id="search-user">
+				<div class="blue-header">
+					<p>
+						<span class="return-icon" id="close-user-search">
+							<svg viewBox="0 0 24 24" width="24" height="24" class=""><path fill="currentColor" d="m12 4 1.4 1.4L7.8 11H20v2H7.8l5.6 5.6L12 20l-8-8 8-8z"></path></svg>
+						</span>
+						<span style="margin-left: 1.5rem;">New chat</span>
+					</p>
+				</div>
+				<div id="search-user" class="search" style="background: #fff;">			
+					<div class="input-box">
+						<div class="search-icon">
+							<img style="width: 24px; height: 24px;" src="/chat/assets/magnifying-glass.svg" alt="">
+						</div>
+						<div class="search-input-container"><input type="text" class="search-input" placeholder="Search somebody to chat"></div>
+					</div>
+				</div>
+			</div>
 		</aside>
 		<main class="chat-container" id="chat-container">
 			<section class="chat" id="chat">
@@ -431,9 +449,6 @@
 						<span class="chatting-contact-lasttime"><small>last seen today at <time datetime="21:5">21:5</time></small></span>
 					</div>
 					<div class="user-actions">
-						<div class="action-icon" id="new-message">
-							<img src="/chat/assets/magnifying-glass.svg" alt="">
-						</div>
 						<div class="action-icon" id="contact-options">
 							<svg viewBox="0 0 24 24" width="24" height="24" class=""><path fill="currentColor" d="M12 7a2 2 0 1 0-.001-4.001A2 2 0 0 0 12 7zm0 2a2 2 0 1 0-.001 3.999A2 2 0 0 0 12 9zm0 6a2 2 0 1 0-.001 3.999A2 2 0 0 0 12 15z"></path></svg>
 						</div>
@@ -451,7 +466,9 @@
 								</div>
 							</div>
 							<div class="msg">Lorem ipsum, dolor sit amet, consectetur adipisicing elit. Labore aspernatur, excepturi necessitatibus autem fugiat fuga aliquid, alias non, a amet consequatur expedita aliquam voluptatem beatae doloremque, vel. Non, quidem, enim.</div>
-							<div class="sent-time">6:30 PM</div>
+							<div class="sent-time">6:30 PM 
+								<svg viewBox="0 0 16 15" width="16" height="15" class=""><path fill="currentColor" d="m8.3 10.2-2.5 1.7c-.3.2-.8-.1-.7-.5L6 8.6c.1-.2 0-.4-.2-.5L3.5 6.3c-.4-.3-.2-.8.2-.8l3-.1c.2 0 .3-.1.4-.3l1-2.8c.1-.4.7-.4.8 0l1 2.8c.1.2.2.3.4.3l3 .1c.4 0 .6.5.3.8l-2.4 1.8c-.1.1-.2.3-.2.5l.9 2.9c.1.4-.3.7-.7.5l-2.5-1.7c-.1-.2-.3-.2-.4-.1z"></path></svg>
+							</div>
 						</div>
 
 					</div>
@@ -469,7 +486,9 @@
 								</div>
 							</div>
 							<div class="msg">Lorem ipsum, dolor sit amet, consectetur adipisicing elit. Labore aspernatur, excepturi necessitatibus autem fugiat fuga aliquid, alias non, a amet consequatur expedita aliquam voluptatem beatae doloremque, vel. Non, quidem, enim.</div>
-							<div class="sent-time">6:30 PM</div>
+							<div class="sent-time">6:30 PM
+								<svg viewBox="0 0 16 15" width="16" height="15" class=""><path fill="currentColor" d="m8.3 10.2-2.5 1.7c-.3.2-.8-.1-.7-.5L6 8.6c.1-.2 0-.4-.2-.5L3.5 6.3c-.4-.3-.2-.8.2-.8l3-.1c.2 0 .3-.1.4-.3l1-2.8c.1-.4.7-.4.8 0l1 2.8c.1.2.2.3.4.3l3 .1c.4 0 .6.5.3.8l-2.4 1.8c-.1.1-.2.3-.2.5l.9 2.9c.1.4-.3.7-.7.5l-2.5-1.7c-.1-.2-.3-.2-.4-.1z"></path></svg>
+							</div>
 						</div>
 						<div class="tail in">
 						</div>
@@ -568,7 +587,9 @@
 								</div>
 							</div>
 							<div class="msg">Lorem ipsum, dolor sit amet, consectetur adipisicing elit. Labore aspernatur, excepturi necessitatibus autem fugiat fuga aliquid, alias non, a amet consequatur expedita aliquam voluptatem beatae doloremque, vel. Non, quidem, enim.</div>
-							<div class="sent-time">6:30 PM</div>
+							<div class="sent-time">6:30 PM 
+								<svg viewBox="0 0 16 15" width="16" height="15" class=""><path fill="currentColor" d="m8.3 10.2-2.5 1.7c-.3.2-.8-.1-.7-.5L6 8.6c.1-.2 0-.4-.2-.5L3.5 6.3c-.4-.3-.2-.8.2-.8l3-.1c.2 0 .3-.1.4-.3l1-2.8c.1-.4.7-.4.8 0l1 2.8c.1.2.2.3.4.3l3 .1c.4 0 .6.5.3.8l-2.4 1.8c-.1.1-.2.3-.2.5l.9 2.9c.1.4-.3.7-.7.5l-2.5-1.7c-.1-.2-.3-.2-.4-.1z"></path></svg>
+							</div>
 						</div>
 						<div class="tail in">
 						</div>
@@ -639,6 +660,7 @@
 							<span data-testid="forward" data-icon="forward" class=""><svg viewBox="0 0 24 24" width="24" height="24" class=""><path fill="currentColor" d="M14.278 4.813c0-.723.873-1.085 1.383-.574l6.045 6.051a.81.81 0 0 1 0 1.146l-6.045 6.051a.81.81 0 0 1-1.383-.574v-2.732c-5.096 0-8.829 1.455-11.604 4.611-.246.279-.702.042-.602-.316 1.43-5.173 4.925-10.004 12.206-11.045V4.813z"></path></svg></span>
 						</div>
 					</div>
+					
 				</div>
 			</section>
 			<section class="contact-info" id="contact-info">
@@ -663,7 +685,7 @@
 						<p class="contact-about">Hey there! I am using Chatme.</p>
 					</div>
 					<div class="contact-info-photos">
-						<p class="contact-photos-title">Photos 
+						<p class="contact-photos-title" id="contact-photos-title">Photos 
 							<svg viewBox="0 0 10 21" width="10" height="21" class=""><path fill="currentColor" d="m1 15.75 5.2-5.2L1 5.35l1.5-1.5 6.5 6.7-6.6 6.6-1.4-1.4z"></path></svg>
 						</p>
 						<div class="photos-container">
@@ -682,7 +704,7 @@
 						</div>					
 					</div>
 					<div class="contact-info-actions">
-						<div class="contact-fav-msgs">
+						<div class="contact-fav-msgs" id="contact-fav-msgs">
 							<div style="display: flex; justify-content: center; align-items: center;"> 
 								<svg viewBox="0 0 16 15" height="20" preserveAspectRatio="xMidYMid meet" class="" style="margin-right: 1.2rem;"><path fill="currentColor" d="m8.3 10.2-2.5 1.7c-.3.2-.8-.1-.7-.5L6 8.6c.1-.2 0-.4-.2-.5L3.5 6.3c-.4-.3-.2-.8.2-.8l3-.1c.2 0 .3-.1.4-.3l1-2.8c.1-.4.7-.4.8 0l1 2.8c.1.2.2.3.4.3l3 .1c.4 0 .6.5.3.8l-2.4 1.8c-.1.1-.2.3-.2.5l.9 2.9c.1.4-.3.7-.7.5l-2.5-1.7c-.1-.2-.3-.2-.4-.1z"></path></svg>Highlighted messages 
 							</div>
@@ -693,9 +715,141 @@
 								<svg viewBox="0 0 24 24" width="20" height="20" class="" style="margin-right: 1.2rem;"><path fill="currentColor" d="M6 18c0 1.1.9 2 2 2h8c1.1 0 2-.9 2-2V6H6v12zM19 3h-3.5l-1-1h-5l-1 1H5v2h14V3z"></path></svg>Delete chat 
 							</div>
 						</div>
-
 					</div>
-				</div>				
+				</div>
+				<div class="user-profile" id="contact-sent-photos">
+					<div class="blue-header">
+						<p>
+							<span class="return-icon" id="close-contact-photos">
+								<svg viewBox="0 0 24 24" width="24" height="24" class=""><path fill="currentColor" d="m12 4 1.4 1.4L7.8 11H20v2H7.8l5.6 5.6L12 20l-8-8 8-8z"></path></svg>
+							</span>
+							<span style="margin-left: 1.5rem;">Photos</span>
+						</p>
+					</div>
+					<div class="sent-photos-container" id="sent-photos-container">
+						<div class="photo-container">
+							<img src="/chat/assets/1.jpeg" alt="">
+						</div>
+						<div class="photo-container">
+							<img src="/chat/assets/1.jpeg" alt="">
+						</div>
+						<div class="photo-container">
+							<img src="/chat/assets/1.jpeg" alt="">
+						</div>
+						<div class="photo-container">
+							<img src="/chat/assets/1.jpeg" alt="">
+						</div>
+						<div class="photo-container">
+							<img src="/chat/assets/1.jpeg" alt="">
+						</div>
+						<div class="photo-container">
+							<img src="/chat/assets/1.jpeg" alt="">
+						</div>
+						<div class="photo-container">
+							<img src="/chat/assets/1.jpeg" alt="">
+						</div>
+						<div class="photo-container">
+							<img src="/chat/assets/1.jpeg" alt="">
+						</div>
+						<div class="photo-container">
+							<img src="/chat/assets/1.jpeg" alt="">
+						</div>
+						<div class="photo-container">
+							<img src="/chat/assets/1.jpeg" alt="">
+						</div>
+						<div class="photo-container">
+							<img src="/chat/assets/1.jpeg" alt="">
+						</div>
+					</div>
+				</div>
+				<div class="user-profile" id="contact-starred-messages">
+					<div class="blue-header">
+						<p>
+							<span class="return-icon" id="close-starred-messages">
+								<svg viewBox="0 0 24 24" width="24" height="24" class=""><path fill="currentColor" d="m12 4 1.4 1.4L7.8 11H20v2H7.8l5.6 5.6L12 20l-8-8 8-8z"></path></svg>
+							</span>
+							<span style="margin-left: 1.5rem;">Starred messages</span>
+						</p>
+					</div>
+					<div class="starred-messages-container" id="starred-messages-container">
+						<div class="message sent" id="123456789asd">
+							<input type="checkbox" class="select-message">
+							<div class="tail out"></div>
+							<div class="msg-container">
+								<div class="forwarded">
+									<div class="options-msg">
+										<div class="options-icon"></div>
+									</div>
+								</div>
+								<div class="msg">Lorem ipsum, dolor sit amet, consectetur adipisicing elit. Labore aspernatur, excepturi necessitatibus autem fugiat fuga aliquid, alias non, a amet consequatur expedita aliquam voluptatem beatae doloremque, vel. Non, quidem, enim.</div>
+								<div class="sent-time">6:30 PM 
+									<svg viewBox="0 0 16 15" width="16" height="15" class=""><path fill="currentColor" d="m8.3 10.2-2.5 1.7c-.3.2-.8-.1-.7-.5L6 8.6c.1-.2 0-.4-.2-.5L3.5 6.3c-.4-.3-.2-.8.2-.8l3-.1c.2 0 .3-.1.4-.3l1-2.8c.1-.4.7-.4.8 0l1 2.8c.1.2.2.3.4.3l3 .1c.4 0 .6.5.3.8l-2.4 1.8c-.1.1-.2.3-.2.5l.9 2.9c.1.4-.3.7-.7.5l-2.5-1.7c-.1-.2-.3-.2-.4-.1z"></path></svg>
+								</div>
+							</div>
+
+						</div>
+						<div class="message received">
+							<input type="checkbox" class="select-message">
+
+							<div class="msg-container">								
+								<div class="forwarded">
+									<span>
+										<svg width="16" height="16" viewBox="0 0 16 16" class="" style="margin-right: 0.3rem;"><path d="M9.519 3.875a.54.54 0 0 1 .922-.382l4.03 4.034a.54.54 0 0 1 0 .764l-4.03 4.034a.54.54 0 0 1-.922-.383v-1.821c-3.398 0-5.886.97-7.736 3.074-.164.186-.468.028-.402-.211.954-3.449 3.284-6.67 8.138-7.363V3.875Z" fill="currentColor"></path></svg>
+										Forwarded
+									</span>
+									<div class="options-msg">
+										<div class="options-icon"></div>
+									</div>
+								</div>
+								<div class="msg">Lorem ipsum, dolor sit amet, consectetur adipisicing elit. Labore aspernatur, excepturi necessitatibus autem fugiat fuga aliquid, alias non, a amet consequatur expedita aliquam voluptatem beatae doloremque, vel. Non, quidem, enim.</div>
+								<div class="sent-time">6:30 PM
+									<svg viewBox="0 0 16 15" width="16" height="15" class=""><path fill="currentColor" d="m8.3 10.2-2.5 1.7c-.3.2-.8-.1-.7-.5L6 8.6c.1-.2 0-.4-.2-.5L3.5 6.3c-.4-.3-.2-.8.2-.8l3-.1c.2 0 .3-.1.4-.3l1-2.8c.1-.4.7-.4.8 0l1 2.8c.1.2.2.3.4.3l3 .1c.4 0 .6.5.3.8l-2.4 1.8c-.1.1-.2.3-.2.5l.9 2.9c.1.4-.3.7-.7.5l-2.5-1.7c-.1-.2-.3-.2-.4-.1z"></path></svg>
+								</div>
+							</div>
+							<div class="tail in">
+							</div>
+
+						</div>
+						<div class="message sent" id="123456789asd">
+							<input type="checkbox" class="select-message">
+							<div class="tail out"></div>
+							<div class="msg-container">
+								<div class="forwarded">
+									<div class="options-msg">
+										<div class="options-icon"></div>
+									</div>
+								</div>
+								<div class="msg">Lorem ipsum, dolor sit amet, consectetur adipisicing elit. Labore aspernatur, excepturi necessitatibus autem fugiat fuga aliquid, alias non, a amet consequatur expedita aliquam voluptatem beatae doloremque, vel. Non, quidem, enim.</div>
+								<div class="sent-time">6:30 PM 
+									<svg viewBox="0 0 16 15" width="16" height="15" class=""><path fill="currentColor" d="m8.3 10.2-2.5 1.7c-.3.2-.8-.1-.7-.5L6 8.6c.1-.2 0-.4-.2-.5L3.5 6.3c-.4-.3-.2-.8.2-.8l3-.1c.2 0 .3-.1.4-.3l1-2.8c.1-.4.7-.4.8 0l1 2.8c.1.2.2.3.4.3l3 .1c.4 0 .6.5.3.8l-2.4 1.8c-.1.1-.2.3-.2.5l.9 2.9c.1.4-.3.7-.7.5l-2.5-1.7c-.1-.2-.3-.2-.4-.1z"></path></svg>
+								</div>
+							</div>
+
+						</div>
+						<div class="message received">
+							<input type="checkbox" class="select-message">
+
+							<div class="msg-container">								
+								<div class="forwarded">
+									<span>
+										<svg width="16" height="16" viewBox="0 0 16 16" class="" style="margin-right: 0.3rem;"><path d="M9.519 3.875a.54.54 0 0 1 .922-.382l4.03 4.034a.54.54 0 0 1 0 .764l-4.03 4.034a.54.54 0 0 1-.922-.383v-1.821c-3.398 0-5.886.97-7.736 3.074-.164.186-.468.028-.402-.211.954-3.449 3.284-6.67 8.138-7.363V3.875Z" fill="currentColor"></path></svg>
+										Forwarded
+									</span>
+									<div class="options-msg">
+										<div class="options-icon"></div>
+									</div>
+								</div>
+								<div class="msg">Lorem ipsum, dolor sit amet, consectetur adipisicing elit. Labore aspernatur, excepturi necessitatibus autem fugiat fuga aliquid, alias non, a amet consequatur expedita aliquam voluptatem beatae doloremque, vel. Non, quidem, enim.</div>
+								<div class="sent-time">6:30 PM
+									<svg viewBox="0 0 16 15" width="16" height="15" class=""><path fill="currentColor" d="m8.3 10.2-2.5 1.7c-.3.2-.8-.1-.7-.5L6 8.6c.1-.2 0-.4-.2-.5L3.5 6.3c-.4-.3-.2-.8.2-.8l3-.1c.2 0 .3-.1.4-.3l1-2.8c.1-.4.7-.4.8 0l1 2.8c.1.2.2.3.4.3l3 .1c.4 0 .6.5.3.8l-2.4 1.8c-.1.1-.2.3-.2.5l.9 2.9c.1.4-.3.7-.7.5l-2.5-1.7c-.1-.2-.3-.2-.4-.1z"></path></svg>
+								</div>
+							</div>
+							<div class="tail in">
+							</div>
+							
+						</div>
+					</div>
+				</div>
 			</section>
 		</main>
 	</div>
