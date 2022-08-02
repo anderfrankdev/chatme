@@ -1,3 +1,12 @@
+require('dotenv').config()
 const {app} = require("./models")
+const {dbConnection} = require("./database/config");
 
-app.listen()
+async function main(){
+	
+	await dbConnection()
+
+	app.listen()
+}
+
+main()
