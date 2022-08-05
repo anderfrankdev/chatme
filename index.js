@@ -7,6 +7,7 @@ async function main(){
 	await dbConnection()
 
 	app.listen()
+	
 }
 
 main()

@@ -4,6 +4,8 @@ const eta = require("eta")
 const express = require('express')
 const cors = require('cors')
 const useragent = require('express-useragent');
+const cookieParser = require("cookie-parser")
+const cookieSession = require('cookie-session')
 
 let instance;
 
@@ -17,7 +19,9 @@ class Server{
 			this.path = {
 				app:"/app",
 				api:{
-
+					users:"/api/users",
+					login:"/api/auth",
+					search:"/api/search"
 				}
 
 			}
@@ -38,7 +42,13 @@ class Server{
 	routes(){
 
 		this.app.use( this.path.app, require('../routes/app') )
-		//this.app.use( this.path.app, require('../routes/app/chat') )
+
+		this.app.use( this.path.api.users, require('../routes/users') )
+
+		this.app.use( this.path.api.login, require('../routes/auth') )
+		this.app.use( this.path.api.search, require('../routes/search') )
+
+
 		
 	}
 	renderEngine(){
@@ -50,6 +60,15 @@ class Server{
 	}
 
 	middlewares(){
+		// Read normal and Signed cookies
+		this.app.use(cookieParser(process.env.SECRETORPRIVATEKEY, {
+			httpOnly:true
+		}));
+		this.app.use( cookieSession({
+			name: 'session',
+			secret: process.env.SECRETORPRIVATEKEY,
+			httpOnly:true
+		}))
 
 		//Public directory
 		this.app.use( express.static(__dirname.replace("models","public"),{redirect: false}) )

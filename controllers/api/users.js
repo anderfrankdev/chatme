@@ -1,5 +1,5 @@
 const {response} = require("express");
-const User = require('../models/user');
+const User = require('../../models/user');
 const bcrypt = require("bcryptjs");
 
 const getUsers = async ( req, res = response)=>{
@@ -8,13 +8,16 @@ const getUsers = async ( req, res = response)=>{
 	const from = req.query.from || 0
 	
 	const [total,users] = await Promise.all([
-		User.countDocuments(query),
-		User.find(query)
+
+		User.countDocuments(),
+		
+		User.find()
 		.skip(Number(from))
 		.limit(Number(limit))
+
 	])
 
-	res.json({
+	return res.json({
 		total,
 		users
 	})
@@ -23,9 +26,9 @@ const getUsers = async ( req, res = response)=>{
 
 const postUsers = async ( req, res = response)=>{
 	
-	const {name,email,password} = req.body;
-	
-	const user = new User({name,email,password});	
+	let {username,first_name,last_name,email,password} = req.body;
+	username = username.toLowerCase()
+	const user = new User({username,first_name,last_name,email,password});	
 
 	const existEmail = await User.findOne({email});
 	
@@ -43,7 +46,8 @@ const postUsers = async ( req, res = response)=>{
 	
 	await user.save();
 
-	res.json(user);
+	return res.json(user);
+
 }
 
 const putUsers = async ( req, res = response )=>{
@@ -56,11 +60,12 @@ const putUsers = async ( req, res = response )=>{
  		const salt = bcrypt.genSaltSync();
  	 	
  	 	rest.password = bcrypt.hashSync(password,salt);
+
  	}
 
  	const user = await User.findByIdAndUpdate( id, rest);
 
-	res.json(
+	return res.json(
 		user
 	)
 }
@@ -74,11 +79,11 @@ const deleteUsers = async ( req, res = response)=>{
 
 	const userAthenticated = req.user
 
-	if (user.state) res.json({user, userAthenticated})
+	if (user.state) return res.json({user, userAthenticated})
 
-	else res.json({
+	else return res.json({
 			"info":"User does not exist"
-		}) 
+		})
 }
 
 module.exports = {
