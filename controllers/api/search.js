@@ -4,10 +4,11 @@ const User = require("../../models/user")
 
 const collectionsAllowed = [
 	"users",
-	"username"
+	"username",
+	"email"
 ]
 
-const searchUser = async(term='',res=response)=>{
+const searchUsers = async(term='',res=response)=>{
 	const esMongoID = ObjectId.isValid(term);
 
 	if(esMongoID){
@@ -34,6 +35,18 @@ const searchUsername = async(term='',res=response)=>{
 	const regex = new RegExp(term, 'i')
 
 	const users = await User.findOne({username:term.toLowerCase()})
+
+	res.status(200).json({
+		results: users
+	})
+}
+
+const searchEmail = async(term='',res=response)=>{
+
+
+	const regex = new RegExp(term, 'i')
+
+	const users = await User.findOne({email:term.toLowerCase()})
 
 	res.status(200).json({
 		results: users
@@ -121,7 +134,7 @@ const search = async(req,res)=>{
 
 	switch(collection){
 		case"users":
-			return await searchUser(term,res)
+			return await searchUsers(term,res)
 		break
 		case"categories":
 			return
@@ -129,8 +142,8 @@ const search = async(req,res)=>{
 		case"username":
 			return searchUsername(term,res)
 		break
-		case"roles":
-			return
+		case"email":
+			return searchEmail(term,res)
 		break
 		default:
 			res.status(500).json({

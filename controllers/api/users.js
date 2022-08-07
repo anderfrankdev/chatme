@@ -28,6 +28,7 @@ const postUsers = async ( req, res = response)=>{
 	
 	let {username,first_name,last_name,email,password} = req.body;
 	username = username.toLowerCase()
+	email = email.toLowerCase()
 	const user = new User({username,first_name,last_name,email,password});	
 
 	const existEmail = await User.findOne({email});

@@ -42,19 +42,54 @@
 		<form action="" class="sign-form" id="signup-form" data-animation="">
 			<div class="arrow-icon" id="signup-arrow"></div>
 			<div class="input-text">
-					<label for="signup-email">Email</label>
-					<input type="text" id="signup-email" placeholder="What's your email?">
+				<label for="signup-email">Email</label>
+				<div id="signup-email-container" data-type="email">
+					<input type="text" data-valid id="signup-email" placeholder="Type your email">
+					<img src="login/assets/spinner.svg" class="input-icon spinner" alt="" style="display: none; width: 2.5rem; height: 2.5rem; border-radius: 50%; position: relative; right: 5px;" id="spinner-image">
+					
+					<svg version="1.1" id="Capa_1" x="0px" y="0px"
+						 width="215.434px" height="215.434px" viewBox="0 0 215.434 215.434"enable-background="new 0 0 215.434 215.434"
+					xml:space="preserve" class="input-icon valid" alt="" style="display: none; width: 2.1rem; height: 2.1rem; border-radius: 50%; position: relative; right: 5px;">
+						<g>
+							<circle fill="#54C147" cx="107.717" cy="107.717" r="106.299"/>
+							<polygon fill="#FFFFFF" points="96.977,121.718 145.084,50.79 168.752,69.02 103.583,164.647 46.678,120.299 63.562,96.402 	"/>
+						</g>
+					</svg>
+					<img src="login/assets/x.png" class="input-icon invalid" alt="" style="display: none; width: 2.1rem; height: 2.1rem; border-radius: 50%; position: relative; right: 5px;" id="spinner-image">
+				</div>
 			</div>
 			<div class="input-text">
 				<label for="signup-password">Password</label>
-				<input type="password" id="signup-password" placeholder="Type your password">
+				<div id="signup-password-container" data-type="password">
+					<input type="password" data-valid id="signup-password" placeholder="Type your password">
+					<img src="login/assets/spinner.svg" class="input-icon spinner" alt="" style="display: none; width: 2.5rem; height: 2.5rem; border-radius: 50%; position: relative; right: 5px;" id="spinner-image">
+					
+					<svg version="1.1" id="Capa_1" x="0px" y="0px"
+						 width="215.434px" height="215.434px" viewBox="0 0 215.434 215.434"enable-background="new 0 0 215.434 215.434"
+					xml:space="preserve" class="input-icon valid" alt="" style="display: none; width: 2.1rem; height: 2.1rem; border-radius: 50%; position: relative; right: 5px;">
+						<g>
+							<circle fill="#54C147" cx="107.717" cy="107.717" r="106.299"/>
+							<polygon fill="#FFFFFF" points="96.977,121.718 145.084,50.79 168.752,69.02 103.583,164.647 46.678,120.299 63.562,96.402 	"/>
+						</g>
+					</svg>
+					<img src="login/assets/x.png" class="input-icon invalid" alt="" style="display: none; width: 2.1rem; height: 2.1rem; border-radius: 50%; position: relative; right: 5px;" id="spinner-image">
+				</div>
 			</div>
 			<div class="input-text">
 				<label for="signup-username">Username</label>
-				<div id="signup-username-container">
-					<input type="text" id="signup-username" placeholder="Get a username">
-					<img src="login/assets/spinner.svg" alt="" style="display: none; width: 2.5rem; height: 2.5rem; border-radius: 50%; position: relative; right: 5px;" id="spinner-image">
-					<img src="login/assets/checked.svg" alt="" style="display: none; width: 2.1rem; height: 2.1rem; border-radius: 50%; position: relative; right: 5px;" id="cheked-image">
+				<div id="signup-username-container" data-type="username">
+					<input type="text" data-valid id="signup-username" placeholder="Get a username">
+					<img src="login/assets/spinner.svg" class="input-icon spinner" alt="" style="display: none; width: 2.5rem; height: 2.5rem; border-radius: 50%; position: relative; right: 5px;" id="spinner-image">
+					
+					<svg version="1.1" id="Capa_1" x="0px" y="0px"
+						 width="215.434px" height="215.434px" viewBox="0 0 215.434 215.434"enable-background="new 0 0 215.434 215.434"
+					xml:space="preserve" class="input-icon valid" alt="" style="display: none; width: 2.1rem; height: 2.1rem; border-radius: 50%; position: relative; right: 5px;">
+						<g>
+							<circle fill="#54C147" cx="107.717" cy="107.717" r="106.299"/>
+							<polygon fill="#FFFFFF" points="96.977,121.718 145.084,50.79 168.752,69.02 103.583,164.647 46.678,120.299 63.562,96.402 	"/>
+						</g>
+					</svg>
+					<img src="login/assets/x.png" class="input-icon invalid" alt="" style="display: none; width: 2.1rem; height: 2.1rem; border-radius: 50%; position: relative; right: 5px;" id="spinner-image">
 				</div>
 			</div>
 			<div class="form-terms">
