@@ -44,7 +44,7 @@
 			<div class="input-text">
 				<label for="signup-email">Email</label>
 				<div id="signup-email-container" data-type="email">
-					<input type="text" data-valid id="signup-email" placeholder="Type your email">
+					<input type="text" required data-valid id="signup-email" placeholder="Type your email">
 					<img src="login/assets/spinner.svg" class="input-icon spinner" alt="" style="display: none; width: 2.5rem; height: 2.5rem; border-radius: 50%; position: relative; right: 5px;" id="spinner-image">
 					
 					<svg version="1.1" id="Capa_1" x="0px" y="0px"
@@ -61,7 +61,7 @@
 			<div class="input-text">
 				<label for="signup-password">Password</label>
 				<div id="signup-password-container" data-type="password">
-					<input type="password" data-valid id="signup-password" placeholder="Type your password">
+					<input type="password" required data-valid id="signup-password" placeholder="Type your password">
 					<img src="login/assets/spinner.svg" class="input-icon spinner" alt="" style="display: none; width: 2.5rem; height: 2.5rem; border-radius: 50%; position: relative; right: 5px;" id="spinner-image">
 					
 					<svg version="1.1" id="Capa_1" x="0px" y="0px"
@@ -78,7 +78,7 @@
 			<div class="input-text">
 				<label for="signup-username">Username</label>
 				<div id="signup-username-container" data-type="username">
-					<input type="text" data-valid id="signup-username" placeholder="Get a username">
+					<input type="text" required data-valid id="signup-username" placeholder="Get a username">
 					<img src="login/assets/spinner.svg" class="input-icon spinner" alt="" style="display: none; width: 2.5rem; height: 2.5rem; border-radius: 50%; position: relative; right: 5px;" id="spinner-image">
 					
 					<svg version="1.1" id="Capa_1" x="0px" y="0px"
@@ -95,7 +95,7 @@
 			<div class="form-terms">
 				<label><input type="checkbox" id="terms-check" value="term" required="">I accept the <a href="#">Privacy Policy and terms</a></label>
 			</div>
-			<div class="form-submit"><input type="submit" value="Sign up"></div>
+			<div class="form-submit"><input type="submit" value="Sign up" id="signup-button"></div>
 		</form>
 	</main>
 </body>

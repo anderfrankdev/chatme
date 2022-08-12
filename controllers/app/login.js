@@ -1,5 +1,10 @@
 const login = (req,res)=>{
-	res.render("login")
+
+	const token = req.session.token
+
+	const render = token ? "redirect" : "login" 
+
+	return res.render(render,{path:"/app/chat"})
 } 
 
 module.exports = {

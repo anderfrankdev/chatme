@@ -1,13 +1,50 @@
-const signIn = () => {
+const signIn = (form) => {
 	
+	const emailInput = form.querySelector("#signin-email")
+	const passwordInput = form.querySelector("#signin-password")
+
+	form.addEventListener("submit", async(e)=>{
+		e.preventDefault()
+		console.log(!(emailInput.value.length>0&&
+		passwordInput.value.length>0))
+		
+		if (!(emailInput.value.length>0&&
+		passwordInput.value.length>0)) return
+
+		//console.log("Working")
+
+		const userData = {
+			email:emailInput.value,
+			password:passwordInput.value,
+			type:"session"
+		}
+
+		const url = `${window.location.origin}/api/auth/login` 
+			
+		const res = await fetch(url,{
+				method:"POST",
+				headers:{
+					"Content-Type": "application/json; charset=utf-8",
+				},
+				body:JSON.stringify(userData)
+		})
+		console.log(res)
+		if (res.status>=200&&
+			res.status<300){
+			emailInput.value  = ""
+			passwordInput.value = ""
+			window.location.pathname="/app/chat"
+		}
+
+	})
 }
 
-const signUp = () => {
-	const emailInput = document.getElementById("signup-email")
-	const passwordInput = document.getElementById("signup-password")
-	const usernameInput = document.getElementById("signup-username")
-	const usernameInputContainer = document.getElementById("signup-username-container")
-	const emailInputContainer = document.getElementById("signup-username-container")
+const validateSignUpForm=(form)=>{
+	const emailInput = form.querySelector("#signup-email")
+	const passwordInput = form.querySelector("#signup-password")
+	const usernameInput = form.querySelector("#signup-username")
+	const usernameInputContainer = form.querySelector("#signup-username-container")
+	const emailInputContainer = form.querySelector("#signup-username-container")
 
 	let counter = 2
 	let intervalId = false;
@@ -31,6 +68,7 @@ const signUp = () => {
 			spinner.style.display="none"
 			inputContainer.style.outline="none"
 			valid.style.display="none"
+			invalid.style.display="none"
 
 			return
 		}
@@ -38,9 +76,18 @@ const signUp = () => {
 		
 
 		if (inputType!="password") {
-			
+
+			inputContainer.style.outline="0.3rem solid yellow"
+		
+			valid.style.display="none"
+
+			invalid.style.display="none"
+
+			spinner.style.display="block"
+
+
 			if (inputType=="email") {
-				const regExp = /^[a-zA-Z0-9]+[@]+[a-zA-Z0-9]+[.]+[a-zA-Z0-9]+$/
+				const regExp = /^[a-z0-9]+(\.[_a-z0-9]+)*@[a-z0-9-]+(\.[a-z0-9-]+)*(\.[a-z]{2,15})$/
 				if (!regExp.test(input.value)) {
 					inputContainer.style.outline="none"
 					inputContainer.style.outline="0.3rem solid #ff0000"
@@ -68,14 +115,15 @@ const signUp = () => {
 			}
 		}
 		
-		console.log("Working")
+		//console.log("Working")
 		
-		console.log(data)
+		//console.log(data)
 		if (!data.results){
 			inputContainer.style.outline="none"
 			inputContainer.style.outline="0.3rem solid #00ff00"
 
 			valid.style.display="block"
+			invalid.style.display="none"
 			spinner.style.display="none"
 			input.dataset.valid="true"
 		}
@@ -85,21 +133,27 @@ const signUp = () => {
 			inputContainer.style.outline="0.3rem solid #ff0000"
 			spinner.style.display="none"
 			invalid.style.display="block"
+			valid.style.display="none"
 		}
 		counter=2
 	}
 
 	const checkFieldEventHandler = async (inputType,inputContainer)=>{
-		
-		counter=2
+
+		if (inputType=="password") {
+			await checkField(inputType,inputContainer)
+			return
+		}
 
 		inputContainer.style.outline="0.3rem solid yellow"
 		
-		inputContainer
-			.querySelector(".valid").style.display="none"
+		inputContainer.querySelector(".valid")
+			.style.display="none"
 
-		inputContainer
-			.querySelector(".invalid").style.display="none"
+		inputContainer.querySelector(".invalid")
+			.style.display="none"
+		
+		counter=2
 
 		intervalId = setInterval(async()=>{
 			
@@ -118,7 +172,7 @@ const signUp = () => {
 
 				intervalId=false
 			};
-		},500)
+		},250)
 	};
 
 	[emailInput, usernameInput].forEach(async input =>{
@@ -132,6 +186,7 @@ const signUp = () => {
 			if (counter==0||counter<0){
 				
 				console.log("happend")
+
 				await checkField(
 					inputContainer.dataset.type,
 					inputContainer
@@ -187,12 +242,79 @@ const signUp = () => {
 			
 			return
 	})
+}
 
+const saveUserData=(form)=>{
+	const emailInput = form.querySelector("#signup-email")
+	const passwordInput = form.querySelector("#signup-password")
+	const usernameInput = form.querySelector("#signup-username")
+
+	form.addEventListener("submit", async(e)=>{
+		e.preventDefault()
+		if (!(emailInput.dataset.valid&&
+		passwordInput.dataset.valid&&
+		usernameInput.dataset.valid)) return
+
+		//console.log("Working")
+
+		const userData = {
+			email:emailInput.value,
+			password:passwordInput.value,
+			username:usernameInput.value,
+
+		}
+
+		const url = `${window.location.origin}/api/users` 
+			
+		const res = await fetch(url,{
+				method:"POST",
+				headers:{
+					"Content-Type": "application/json; charset=utf-8",
+				},
+				body:JSON.stringify(userData)
+		})
+		
+		if (res.status>=200&&
+			res.status<300){
+
+			emailInput.value  = ""
+			passwordInput.value = ""
+			usernameInput.value = ""
+
+			const url = `${window.location.origin}/api/auth/login` 
+			
+			const res2 = await fetch(url,{
+					method:"POST",
+					headers:{
+						"Content-Type": "application/json; charset=utf-8",
+					},
+					body:JSON.stringify({
+						email:userData.email,
+						password:userData.password,
+						type:"session"
+					})
+			})
+
+			if (res2.status>=200&&
+			res2.status<300){
+				window.location="/app/chat"
+			}
+		}
+	})	
+}
+
+const signUp = (form) => {
+	validateSignUpForm(form)
+	saveUserData(form)
 }
 
 const sessions = () => {
-	signUp()
-	signIn()
+	const signForm = document.getElementById("signup-form")
+	signUp(signForm)
+
+	const logForm = document.getElementById("login-form")
+
+	signIn(logForm)
 }
 
 export {

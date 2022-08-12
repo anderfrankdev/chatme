@@ -13,16 +13,21 @@ router.post("/login", [
 ], login)
 
 
-router.get("/logout",(req,res)=>{
+router.post("/logout",(req,res)=>{
 
-	req.session = null
+	
 	res.clearCookie("session")
 	res.clearCookie("session.sig")
 	res.clearCookie("g_state")
 	res.cookie('out', true, { httpOnly: true})
-	
-	
-	return res.redirect(301, "/")
+
+	req.session = null
+
+	console.log(res.session)
+
+	return res.json({
+		result:1
+	})
 
 })
 

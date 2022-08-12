@@ -2,6 +2,55 @@ function toggleForm() {
 	const loginBtn = document.getElementById('login-btn')
 	const loginForm = document.getElementById('login-form')
 	const loginArrow = document.getElementById('login-arrow')
+	let style="mobile"
+
+	window.addEventListener("resize",()=>{
+		if (!(window.matchMedia("(min-width: 53.125em)").matches)&&
+			style=="desktop") {
+
+			loginForm.style.top="0"
+
+			signForm.style.top="0"
+			style="mobile"
+		}
+		if ((window.matchMedia("(min-width: 53.125em)").matches)&&
+			style=="mobile") {
+			loginForm.style.top="unset"
+			loginForm.style.right="-110%"
+
+			signForm.style.top="unset"
+			style="desktop"
+
+		}
+		return
+	})
+
+	const toggleOut=(form)=>{
+		const arrow = form.querySelector(".arrow-icon")
+		if (form.dataset.animation.includes("right")) {
+			form.style.right="100%"
+			form.dataset.animation="left"
+			arrow.style.transform="rotate(0)"
+
+			return
+		}
+		if (form.dataset.animation.includes("left")) {
+			
+			form.style.right="-100%"
+			arrow.style.transform="rotate(180deg)"
+			form.dataset.animation="right"
+			return
+		}
+		if (!form.dataset.animation) {
+
+			form.style.right="100%"
+			form.dataset.animation="left"
+			arrow.style.transform="rotate(0)"
+
+			return
+
+		}
+	}
 
 	loginBtn.addEventListener("click",e=>{
 		
@@ -25,29 +74,8 @@ function toggleForm() {
 			
 		}
 		
-		if (loginForm.dataset.animation.includes("right")) {
-			loginForm.style.right="100%"
-			loginForm.dataset.animation="left"
-			loginArrow.style.transform="rotate(0)"
-
-			return
-		}
-		if (loginForm.dataset.animation.includes("left")) {
-			
-			loginForm.style.right="-100%"
-			loginArrow.style.transform="rotate(180deg)"
-			loginForm.dataset.animation="right"
-			return
-		}
-		if (!loginForm.dataset.animation) {
-
-			loginForm.style.right="100%"
-			loginForm.dataset.animation="left"
-			loginArrow.style.transform="rotate(0)"
-
-			return
-
-		}
+		return toggleOut(loginForm)
+		
 		
 		
 	})
@@ -79,29 +107,8 @@ function toggleForm() {
 			
 		}
 		
-		if (signForm.dataset.animation.includes("right")) {
-			signForm.style.right="100%"
-			signForm.dataset.animation="left"
-			signArrow.style.transform="rotate(0)"
+		return toggleOut(signForm)
 
-			return
-		}
-		if (signForm.dataset.animation.includes("left")) {
-			
-			signForm.style.right="-100%"
-			signArrow.style.transform="rotate(180deg)"
-			signForm.dataset.animation="right"
-			return
-		}
-		if (!signForm.dataset.animation) {
-
-			signForm.style.right="100%"
-			signForm.dataset.animation="left"
-			signArrow.style.transform="rotate(0)"
-
-			return
-
-		}
 	})
 }
 

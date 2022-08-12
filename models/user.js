@@ -38,6 +38,10 @@ const UserSchema = Schema({
 	starred_messages:{
 		type:Array,
 		required:false
+	},
+	info:{
+		type:String,
+		required:false
 	}
 });
 

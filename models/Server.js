@@ -6,6 +6,8 @@ const cors = require('cors')
 const useragent = require('express-useragent');
 const cookieParser = require("cookie-parser")
 const cookieSession = require('cookie-session')
+const {socketController} = require("../sockets/socket-controller")
+
 
 let instance;
 
@@ -16,6 +18,8 @@ class Server{
 
 			this.app = express()
 			this.server= createServer(this.app)
+			this.io    = require("socket.io")(this.server)
+			
 			this.path = {
 				app:"/app",
 				api:{
@@ -81,6 +85,9 @@ class Server{
 
 		//Parse user agent
 		this.app.use(useragent.express());
+	}
+	sockets(){
+		this.io.on("connection", socket => socketController(socket,this.io))
 	}
 
 	listen(){

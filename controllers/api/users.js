@@ -46,8 +46,9 @@ const postUsers = async ( req, res = response)=>{
  	user.password = bcrypt.hashSync(String(password),salt);
 	
 	await user.save();
+	const {uid} = user.toJSON()
 
-	return res.json(user);
+	return res.json({uid});
 
 }
 
